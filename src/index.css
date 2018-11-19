@@ -2,6 +2,7 @@
   background-image: url("https://images.unsplash.com/photo-1527348886649-3bd94dfd6694?ixlib=rb-0.3.5…yMDd9&s=31603f3…&auto=format&fit=crop&w=2767&q=80f");
   background-repeat: no-repeat;
   background-size: cover;
+  padding: 5px;
 }
 
 h1.ui.inverted.header.headerTitle {
@@ -9,3 +10,48 @@ h1.ui.inverted.header.headerTitle {
   font-size: 6em !important;
   margin-top: 2em !important;
 }
+
+.jumbotron {
+  background-color: #fff;
+  margin: 10px;
+  text-align: center;
+}
+
+hr {
+  border: 0.5px solid red;
+  width: 15%;
+  position: relative;
+  top: 20px;
+  bottom: 20px;
+}
+
+.country {
+  line-height: 1.5;
+  margin: 0 50px 0 50px;
+  border: none;
+  box-shadow: none;
+}
+
+.country-description {
+  border: none;
+  box-shadow: none;
+}
+.country-info {
+  position: relative;
+  top: 100px;
+  margin-bottom: 150px;
+}
+
+.tab {
+  position: relative;
+  top: 20px;
+}
+/* .headerContainer {
+  background-image: url("https://images.unsplash.com/photo-1527348886649-3bd94dfd6694?ixlib=rb-0.3.5…yMDd9&s=31603f3…&auto=format&fit=crop&w=2767&q=80f");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+} */
+
+/* background color */
+/* #06435d */

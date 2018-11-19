@@ -1,0 +1,35 @@
+import React from "react";
+import { Jumbotron } from "react-bootstrap";
+import { Segment, Tab } from "semantic-ui-react";
+import TabDetail from "./TabDetail";
+
+const CountryDetail = props => {
+  return (
+    <div>
+      <Jumbotron>
+        <h1>Country Name</h1>
+        <hr />
+      </Jumbotron>
+      <div className="country">
+        <div className="country-description">
+          The roughly 5000-year old Chinese civilization has endured through
+          millennia of tumultuous upheaval and revolutions, periods of golden
+          ages and anarchy alike. Through the recent economic boom initiated by
+          the reforms of Deng Xiaoping, China is once again one of the leading
+          nations in the world, buoyed by its large, industrious population and
+          abundant natural resources. The depth and complexity of the Chinese
+          civilization, with its rich heritage, has fascinated Westerners such
+          as Marco Polo and Gottfried Leibniz through the Great Silk Road and
+          more ways of culture exchange in centuries past, and will continue to
+          excite - and bewilder - the traveler today.
+        </div>
+        <TabDetail />
+        <TabDetail />
+        <TabDetail />
+      </div>
+      {props.children}
+    </div>
+  );
+};
+
+export default CountryDetail;
