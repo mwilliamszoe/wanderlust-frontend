@@ -8,6 +8,9 @@ import SignUp from "./Components/SignUp";
 import Continents from "./Components/Continents";
 import Countries from "./Components/Countries";
 import CountryDetail from "./Components/CountryDetail";
+import ExperienceDetail from "./Components/ExperienceDetail";
+import Mood from "./Components/Mood";
+// import CountryExperiences from "./Components/CountryExperiences";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 class App extends Component {
@@ -18,13 +21,16 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/experiences" component={Experiences} />
-            {/* <Route path="/experiences/:country" component={Places} /> */}
+            {/* <Route path="/experiences/:id" component={Experience} /> */}
+            <Route path="/moods/:id" component={Mood} />
+            {/* <Route
+              path="/country-experiences/:id"
+              component={CountryExperiences}
+            /> */}
+            <Route path="/experience-detail" component={ExperienceDetail} />
             <Route path="/countries/:country" component={CountryDetail} />
-            {/* country detail pages */}
             <Route path="/places/:continents" component={Countries} />
-            {/* list of countries */}
             <Route path="/continents" component={Continents} />
-            {/* list of continents */}
             <Route path="/logIn" component={LogIn} />
             <Route path="/signUp" component={SignUp} />
           </Switch>

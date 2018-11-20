@@ -1,7 +1,21 @@
-import React from "react";
+import React, { Component } from "react";
 // import HomepageHeading from "./HomepageLayout";
 import PropTypes from "prop-types";
-import { Container, Header, Segment } from "semantic-ui-react";
+import {
+  Container,
+  Header,
+  Segment,
+  Responsive,
+  Visibility,
+  Menu,
+  Button,
+  Sidebar,
+  Icon,
+  Image,
+  Divider,
+  List,
+  Grid
+} from "semantic-ui-react";
 
 // const HomePage = props => {
 //   return (
@@ -34,16 +48,6 @@ const HomepageHeading = ({ mobile }) => (
         }}
         className="headerTitle"
       />
-      <Header
-        as="h2"
-        content="Some other header subtitle"
-        inverted
-        style={{
-          fontSize: mobile ? "1.5em" : "1.7em",
-          fontWeight: "normal",
-          marginTop: mobile ? "0.5em" : "1.5em"
-        }}
-      />
     </Container>
   </Segment>
 );
@@ -53,3 +57,5 @@ HomepageHeading.propTypes = {
 };
 
 export default HomepageHeading;
+
+//=============================================//

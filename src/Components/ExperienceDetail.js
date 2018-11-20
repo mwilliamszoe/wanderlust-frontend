@@ -3,18 +3,17 @@ import { Jumbotron } from "react-bootstrap";
 import { Segment, Card, Image } from "semantic-ui-react";
 import TabDetail from "./TabDetail";
 import ExperienceCard from "./ExperienceCard";
-// import { NavLink } from "react-router-dom";
 
-const CountryDetail = props => {
+const ExperienceDetail = props => {
   return (
     <div>
       <Jumbotron>
-        <h1>Country Name</h1>
+        <h1>Experience Name</h1>
         <h3>preferably with picture</h3>
         <hr />
       </Jumbotron>
-      <div className="country">
-        <div className="country-description">
+      <div className="Experience">
+        <div className="Experience-description">
           The roughly 5000-year old Chinese civilization has endured through
           millennia of tumultuous upheaval and revolutions, periods of golden
           ages and anarchy alike. Through the recent economic boom initiated by
@@ -42,4 +41,4 @@ const CountryDetail = props => {
   );
 };
 
-export default CountryDetail;
+export default ExperienceDetail;
