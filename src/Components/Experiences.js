@@ -1,39 +1,40 @@
 import React from "react";
-import { Segment, Card, Icon, Table } from "semantic-ui-react";
+import { Segment, Card, Icon, Table, Header } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 
 const Experiences = props => {
   return (
     <div>
-      <h1>Experiences</h1>
-      <h2>Ordered By Category</h2>
-      <Card.Group itemsPerRow={4}>
-        <Card as={NavLink} name="mood" to="/moods/:id">
-          <Card.Content>
-            <Icon name="tree" size="massive" />
-            <Card.Description>Mood: Outdoors</Card.Description>
-          </Card.Content>
-        </Card>
-        <Card>
-          <Card.Content>
-            <Icon name="tree" size="massive" />
-            <Card.Description>Mood: Outdoors</Card.Description>
-          </Card.Content>
-        </Card>
-        <Card>
-          <Card.Content>
-            <Icon name="tree" size="massive" />
-            <Card.Description>Mood: Outdoors</Card.Description>
-          </Card.Content>
-        </Card>
-        <Card>
-          <Card.Content>
-            <Icon name="tree" size="massive" />
-            <Card.Description>Mood: Outdoors</Card.Description>
-          </Card.Content>
-        </Card>
-      </Card.Group>
-      <h3>Ordered By Country</h3>
+      <Segment>
+        <h1 className="experience-header">What kind of mood are you in?</h1>
+        <Card.Group itemsPerRow={4}>
+          <Card as={NavLink} name="mood" to="/moods/:id">
+            <Card.Content>
+              <Icon name="tree" size="massive" />
+              <Card.Description>Outdoors</Card.Description>
+            </Card.Content>
+          </Card>
+          {/* <Card>
+            <Card.Content>
+              <Icon name="tree" size="massive" />
+              <Card.Description>Mood</Card.Description>
+            </Card.Content>
+          </Card>
+          <Card>
+            <Card.Content>
+              <Icon name="tree" size="massive" />
+              <Card.Description>Mood</Card.Description>
+            </Card.Content>
+          </Card>
+          <Card>
+            <Card.Content>
+              <Icon name="tree" size="massive" />
+              <Card.Description>Mood</Card.Description>
+            </Card.Content>
+          </Card> */}
+        </Card.Group>
+      </Segment>
+      {/* <h3>Ordered By Country</h3>
       <Table basic="very">
         <Table.Header>
           <Table.Row>
@@ -95,7 +96,7 @@ const Experiences = props => {
             <Table.Cell>Tibet</Table.Cell>
           </Table.Row>
         </Table.Body>
-      </Table>
+      </Table> */}
       {props.children}
     </div>
   );

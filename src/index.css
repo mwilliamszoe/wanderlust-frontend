@@ -15,6 +15,11 @@ h1.ui.inverted.header.headerTitle {
   width: 50%;
 }
 
+.experience-header {
+  box-shadow: none;
+  border: none;
+}
+
 form.ui.form {
   text-align: center;
   margin: 2em;
@@ -22,14 +27,11 @@ form.ui.form {
 
 img.ui.image {
   max-height: 250px;
-  /* max-width: 300px; */
-  /* margin: auto; */
 }
 
-/* h1.ui.huge.inverted.header {
-  font-family: fantasy;
-  font-family: "Sriracha", cursive;
-} */
+.content {
+  text-align: center;
+}
 
 .jumbotron {
   background-color: #fff;

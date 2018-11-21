@@ -14,17 +14,39 @@ import Profile from "./Components/Profile";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 class App extends Component {
-  // componentDidMount = () => {
-  //   fetch("https://localhost:4000/regions.json")
-  //     .then(r => r.json())
-  //     .then(region => console.log(region));
-  // };
+  state = {
+    regions: [],
+    countries: []
+  };
+  componentDidMount = () => {
+    fetch("http://localhost:4000/regions")
+      .then(r => r.json())
+      .then(r =>
+        this.setState({
+          regions: r
+        })
+      );
+    fetch("http://localhost:4000/countries")
+      .then(r => r.json())
+      .then(c =>
+        this.setState({
+          countries: c
+        })
+      );
+  };
   render() {
+    console.log(this.state.regions, this.state.countries);
     return (
       <BrowserRouter>
         <Navigation>
           <Switch>
-            <Route exact path="/" component={HomePage} />
+            <Route
+              exact
+              path="/"
+              render={routerProps => (
+                <HomePage testprops={this.state.regions} {...routerProps} />
+              )}
+            />
             <Route path="/experiences" component={Experiences} />
             <Route path="/mood/:experience" component={ExperienceDetail} />
             <Route path="/moods/:id" component={Mood} />

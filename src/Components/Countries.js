@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 const Countries = props => {
   return (
     <div>
-      <h1>Countries</h1>
       <Segment>
         <Card.Group itemsPerRow={6}>
           <Card

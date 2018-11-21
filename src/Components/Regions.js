@@ -6,8 +6,6 @@ class Regions extends Component {
   render() {
     return (
       <div>
-        <h1>Regions</h1>
-
         <Segment>
           <Card.Group itemsPerRow={3}>
             <Card
