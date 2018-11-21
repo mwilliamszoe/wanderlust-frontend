@@ -13,7 +13,9 @@ import {
   Responsive,
   Segment,
   Sidebar,
-  Visibility
+  Visibility,
+  Modal,
+  Form
 } from "semantic-ui-react";
 import HomepageHeading from "./HomePage";
 import DesktopContainer from "./HomePage";
@@ -53,9 +55,9 @@ export default class DesktopNavigation extends Component {
               <Container>
                 <Menu.Item as={NavLink} name="home" to="/" />
                 <Menu.Item as={NavLink} name="experiences" to="/experiences" />
-                <Menu.Item as={NavLink} name="places" to="/continents" />
+                <Menu.Item as={NavLink} name="places" to="/regions" />
                 <Menu.Item position="right">
-                  <Button
+                  {/* <Button
                     // as="a"
                     inverted={!fixed}
                     as={NavLink}
@@ -63,8 +65,33 @@ export default class DesktopNavigation extends Component {
                     to="/login"
                   >
                     Log in
-                  </Button>
-                  <Button
+                  </Button> */}
+                  <Modal trigger={<Button inverted={!fixed}>Log in</Button>}>
+                    <Form>
+                      <Form.Field>
+                        <label>Name</label>
+                        <input placeholder="Name" />
+                      </Form.Field>
+                      <Form.Field>
+                        <label>Email</label>
+                        <input placeholder="Email" type="email" />
+                      </Form.Field>
+                      <Form.Field>
+                        <label>Password</label>
+                        <input placeholder="Password" type="password" />
+                      </Form.Field>
+                      <Button
+                        type="submit"
+                        color="green"
+                        as={NavLink}
+                        name="profile"
+                        to="/profile"
+                      >
+                        Submit
+                      </Button>
+                    </Form>
+                  </Modal>
+                  {/* <Button
                     as={NavLink}
                     name="signup"
                     to="/signup"
@@ -73,7 +100,7 @@ export default class DesktopNavigation extends Component {
                     style={{ marginLeft: "0.5em" }}
                   >
                     Sign Up
-                  </Button>
+                  </Button> */}
                 </Menu.Item>
               </Container>
             </Menu>
@@ -121,7 +148,7 @@ DesktopNavigation.propTypes = {
 //             </Menu.Item>
 //             <Menu.Item as={NavLink} name="home" to="/" />
 //             <Menu.Item as={NavLink} name="experiences" to="/experiences" />
-//             <Menu.Item as={NavLink} name="places" to="/continents" />
+//             <Menu.Item as={NavLink} name="places" to="/regions" />
 //             <Menu.Item as="a">Log in</Menu.Item>
 //             <Menu.Item as="a">Sign Up</Menu.Item>
 //           </Sidebar>

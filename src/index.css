@@ -9,6 +9,23 @@ h1.ui.inverted.header.headerTitle {
   font-family: "Sriracha", cursive;
 }
 
+.ui.modal.transition.visible.active {
+  margin: auto;
+  height: 50%;
+  width: 50%;
+}
+
+form.ui.form {
+  text-align: center;
+  margin: 2em;
+}
+
+img.ui.image {
+  max-height: 250px;
+  /* max-width: 300px; */
+  /* margin: auto; */
+}
+
 /* h1.ui.huge.inverted.header {
   font-family: fantasy;
   font-family: "Sriracha", cursive;
