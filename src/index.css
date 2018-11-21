@@ -7,9 +7,12 @@
 
 h1.ui.inverted.header.headerTitle {
   font-family: "Sriracha", cursive;
-  font-size: 6em !important;
-  margin-top: 2em !important;
 }
+
+/* h1.ui.huge.inverted.header {
+  font-family: fantasy;
+  font-family: "Sriracha", cursive;
+} */
 
 .jumbotron {
   background-color: #fff;
