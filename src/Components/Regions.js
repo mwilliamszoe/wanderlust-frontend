@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 
 class Regions extends Component {
   render() {
+    console.log(this.props.regions, "regions");
+
     return (
       <div>
         <Segment>
@@ -14,6 +16,7 @@ class Regions extends Component {
                 as={NavLink}
                 to="/places/:regions"
                 className="region-card"
+                countries={region}
               >
                 <Image src="https://images.unsplash.com/photo-1519187903022-c0055ec4036a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b745ac0a699722085f70eae036268b1f&auto=format&fit=crop&w=675&q=80" />
                 <Card.Content>
