@@ -17,7 +17,6 @@ import {
 } from "semantic-ui-react";
 
 const HomepageHeading = (props, { mobile }) => {
-  console.log(props.testprops, "from homepage");
   return (
     <Segment
       inverted

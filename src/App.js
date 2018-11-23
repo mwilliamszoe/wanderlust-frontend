@@ -15,8 +15,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 class App extends Component {
   state = {
-    regions: [],
-    countries: []
+    regions: []
   };
   componentDidMount = () => {
     fetch("http://localhost:4000/regions")
@@ -26,16 +25,8 @@ class App extends Component {
           regions: r
         })
       );
-    fetch("http://localhost:4000/countries")
-      .then(r => r.json())
-      .then(c =>
-        this.setState({
-          countries: c
-        })
-      );
   };
   render() {
-    console.log(this.state.regions, this.state.countries);
     return (
       <BrowserRouter>
         <Navigation>
@@ -43,9 +34,7 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={routerProps => (
-                <HomePage testprops={this.state.regions} {...routerProps} />
-              )}
+              render={routerProps => <HomePage {...routerProps} />}
             />
             <Route path="/experiences" component={Experiences} />
             <Route path="/mood/:experience" component={ExperienceDetail} />
@@ -57,7 +46,12 @@ class App extends Component {
             <Route path="/experience-detail" component={ExperienceDetail} />
             <Route path="/countries/:country" component={CountryDetail} />
             <Route path="/places/:Regions" component={Countries} />
-            <Route path="/Regions" component={Regions} />
+            <Route
+              path="/Regions"
+              render={routerProps => (
+                <Regions regions={this.state.regions} {...routerProps} />
+              )}
+            />
             <Route path="/logIn" component={LogIn} />
             <Route path="/profile" component={Profile} />
           </Switch>
