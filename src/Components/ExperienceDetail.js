@@ -17,19 +17,15 @@ class ExperienceDetail extends Component {
   };
 
   render() {
-    // console.log(this.state.experiences);
-    // console.log(this.props.match.params.id, this.state.experiences);
-    const experienceId = this.props.match.params.id;
     const experiencesArray = this.state.experiences;
-    const matchedExperience = experiencesArray.map(experience => {
-      if(experience.id === experienceId;) 
-
+    const matchedExperience = experiencesArray.find(experience => {
+      return experience.id === parseInt(this.props.match.params.id);
     });
-    console.log(this.props.match.params.id, matchedExperience);
+    console.log(matchedExperience);
     return (
       <div>
         <Jumbotron>
-          <h1>EXPERIENCE DETAIL</h1>
+          <h1 />
           <hr />
         </Jumbotron>
         <div className="Experience">

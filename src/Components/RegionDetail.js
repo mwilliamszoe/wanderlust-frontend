@@ -4,7 +4,8 @@ import { Segment, Card } from "semantic-ui-react";
 import CountryCard from "./CountryCard";
 
 const RegionDetail = props => {
-  console.log(props.location.state);
+  // console.log(props.match.params.id)
+  // console.log(props.location.state);
 
   const country = props.location.state.region.countries.map((country, idx) => {
     return <CountryCard country={country} key={idx} />;

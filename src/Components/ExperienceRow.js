@@ -11,11 +11,11 @@ const ExperienceRow = (props, { match }) => {
       <Grid.Column width={4}>
         <Link
           to={{
+            pathname: `/experience/${props.experience.id}`
             // pathname: "/experience-list/:experience-detail"
-            pathname: `/experience/${props.experience.id}`,
-            state: {
-              experience: props.experiences
-            }
+            // state: {
+            //   experience: props.experiences
+            // }
           }}
         >
           <Image
