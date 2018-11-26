@@ -1,3 +1,5 @@
+//DEPRECATED - NEED TO DELETE
+
 import React, { Component } from "react";
 import { Image, Segment, Card } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";

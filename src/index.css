@@ -5,6 +5,24 @@
   padding: 5px;
 }
 
+.ui.segment:first-child {
+  margin-top: 13px !important;
+}
+
+.ui.grid {
+  margin-left: 1rem !important;
+}
+
+.ui.cards {
+  margin-left: 9.5% !important;
+  margin-top: 1% !important;
+}
+
+.ui.segment {
+  border: none !important;
+  box-shadow: none !important;
+}
+
 h1.ui.inverted.header.headerTitle {
   font-family: "Sriracha", cursive;
 }

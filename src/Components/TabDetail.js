@@ -1,6 +1,5 @@
 import React from "react";
-import { Jumbotron } from "react-bootstrap";
-import { Segment, Tab } from "semantic-ui-react";
+import { Tab } from "semantic-ui-react";
 
 const know = [
   {

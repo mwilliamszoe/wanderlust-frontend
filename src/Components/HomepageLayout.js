@@ -24,7 +24,7 @@ const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Header
       as="h1"
-      content="Wanderlust"
+      content="Imagine-a-Company"
       inverted
       style={{
         fontSize: mobile ? "2em" : "4em",
@@ -32,11 +32,10 @@ const HomepageHeading = ({ mobile }) => (
         marginBottom: 0,
         marginTop: mobile ? "1.5em" : "3em"
       }}
-      className="headerTitle"
     />
     <Header
       as="h2"
-      content="Some other header subtitle"
+      content="Do whatever you want when you want to."
       inverted
       style={{
         fontSize: mobile ? "1.5em" : "1.7em",
@@ -44,10 +43,10 @@ const HomepageHeading = ({ mobile }) => (
         marginTop: mobile ? "0.5em" : "1.5em"
       }}
     />
-    {/* <Button primary size="huge">
+    <Button primary size="huge">
       Get Started
       <Icon name="right arrow" />
-    </Button> */}
+    </Button>
   </Container>
 );
 
@@ -59,7 +58,7 @@ HomepageHeading.propTypes = {
  * Neither Semantic UI nor Semantic UI React offer a responsive navbar, however, it can be implemented easily.
  * It can be more complicated, but you can create really flexible markup.
  */
-export class DesktopContainer extends Component {
+class DesktopContainer extends Component {
   state = {};
 
   hideFixedMenu = () => this.setState({ fixed: false });
@@ -103,9 +102,8 @@ export class DesktopContainer extends Component {
                   <Button
                     as="a"
                     inverted={!fixed}
-                    // primary={fixed}
+                    primary={fixed}
                     style={{ marginLeft: "0.5em" }}
-                    color="violet"
                   >
                     Sign Up
                   </Button>
@@ -126,7 +124,7 @@ DesktopContainer.propTypes = {
   children: PropTypes.node
 };
 
-export class MobileContainer extends Component {
+class MobileContainer extends Component {
   state = {};
 
   handlePusherClick = () => {
@@ -182,13 +180,7 @@ export class MobileContainer extends Component {
                     <Button as="a" inverted>
                       Log in
                     </Button>
-
-                    <Button
-                      as="a"
-                      inverted
-                      style={{ marginLeft: "0.5em" }}
-                      color="violet"
-                    >
+                    <Button as="a" inverted style={{ marginLeft: "0.5em" }}>
                       Sign Up
                     </Button>
                   </Menu.Item>
@@ -247,15 +239,13 @@ const HomepageLayout = () => (
               bordered
               rounded
               size="large"
-              src="https://images.unsplash.com/photo-1517044589904-826302db21fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0784e8b6bfd2c863c9e2b6a6784abd25&auto=format&fit=crop&w=2550&q=80"
+              src="/images/wireframe/white-image.png"
             />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign="center">
-            <Button size="huge" color="violet">
-              Check Them Out
-            </Button>
+            <Button size="huge">Check Them Out</Button>
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -276,11 +266,8 @@ const HomepageLayout = () => (
               "I shouldn't have gone with their competitor."
             </Header>
             <p style={{ fontSize: "1.33em" }}>
-              <Image
-                avatar
-                src="http://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/1024/22259-bear-face-icon.png"
-              />
-              <b>Bear Bear -</b> Chief Fun Officer Acme Toys
+              <Image avatar src="/images/avatar/large/nan.jpg" />
+              <b>Nan</b> Chief Fun Officer Acme Toys
             </p>
           </Grid.Column>
         </Grid.Row>
@@ -297,7 +284,7 @@ const HomepageLayout = () => (
           whitespace and generic content that can seem massive, monolithic and
           worth your attention.
         </p>
-        <Button as="a" size="large" color="violet">
+        <Button as="a" size="large">
           Read More
         </Button>
         <Divider
@@ -306,7 +293,7 @@ const HomepageLayout = () => (
           horizontal
           style={{ margin: "3em 0em", textTransform: "uppercase" }}
         >
-          <a href="#">Case Studies</a>
+          <a href="www.example.com">Case Studies</a>
         </Divider>
         <Header as="h3" style={{ fontSize: "2em" }}>
           Did We Tell You About Our Bananas?
@@ -316,7 +303,7 @@ const HomepageLayout = () => (
           filler content, but it's really true. It took years of gene splicing
           and combinatory DNA research, but our bananas can really dance.
         </p>
-        <Button as="a" size="large" color="violet">
+        <Button as="a" size="large">
           I'm Still Quite Interested
         </Button>
       </Container>
@@ -358,5 +345,4 @@ const HomepageLayout = () => (
     </Segment>
   </ResponsiveContainer>
 );
-export default HomepageHeading;
-export { ResponsiveContainer, HomepageLayout };
+export default HomepageLayout;

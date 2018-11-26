@@ -1,16 +1,17 @@
 import React from "react";
 import { Jumbotron } from "react-bootstrap";
-import { Segment, Card, Image } from "semantic-ui-react";
+import { Segment, Card } from "semantic-ui-react";
 import TabDetail from "./TabDetail";
 import ExperienceCard from "./ExperienceCard";
 // import { NavLink } from "react-router-dom";
 
 const CountryDetail = props => {
+  // console.log(props.location.state);
+  console.log(props.location.state, "why");
   return (
     <div>
       <Jumbotron>
-        <h1>Country Name</h1>
-        <h3>preferably with picture</h3>
+        <h1>{props.location.state.country.name}</h1>
         <hr />
       </Jumbotron>
       <div className="country">

@@ -1,16 +1,14 @@
 import React, { Component } from "react";
 import Navigation from "./Components/Navigation";
-// import HompageLayout from "./Components/HomepageLayout";
+// import HomepageLayout from "./Components/HomepageLayout";
 import HomePage from "./Components/HomePage";
-import Experiences from "./Components/Experiences";
-import LogIn from "./Components/LogIn";
-import Regions from "./Components/Regions";
-import Countries from "./Components/Countries";
+import HomepageLayout from "./Components/HomepageLayout";
+import ExperienceList from "./Components/ExperienceList";
 import CountryDetail from "./Components/CountryDetail";
 import ExperienceDetail from "./Components/ExperienceDetail";
-import Mood from "./Components/Mood";
 import Profile from "./Components/Profile";
-// import CountryExperiences from "./Components/CountryExperiences";
+import RegionsList from "./Components/RegionsList";
+import RegionDetail from "./Components/RegionDetail"; //change to RegionsCountries later
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 class App extends Component {
@@ -31,29 +29,31 @@ class App extends Component {
       <BrowserRouter>
         <Navigation>
           <Switch>
-            <Route
+            {/* <Route
               exact
               path="/"
               render={routerProps => <HomePage {...routerProps} />}
+            /> */}
+            <Route exact path="/" component={HomePage} />
+            <Route path="/experience-list" component={ExperienceList} />
+            <Route path="/experience/:id" component={ExperienceDetail} />
+            <Route path="/countries/:country" component={CountryDetail} />
+            <Route
+              path="/regions-list/:region-detail"
+              component={RegionDetail}
             />
-            <Route path="/experiences" component={Experiences} />
-            <Route path="/mood/:experience" component={ExperienceDetail} />
-            <Route path="/moods/:id" component={Mood} />
+            <Route path="/regions-list" component={RegionsList} />
+            <Route path="/profile" component={Profile} />
+
+            {/* <Route path="/logIn" component={LogIn} /> */}
+            {/* <Route path="/moods/:id" component={Mood} /> */}
             {/* <Route
               path="/country-experiences/:id"
               component={CountryExperiences}
             /> */}
-            <Route path="/experience-detail" component={ExperienceDetail} />
-            <Route path="/countries/:country" component={CountryDetail} />
-            <Route path="/places/:Regions" component={Countries} />
-            <Route
-              path="/Regions"
-              render={routerProps => (
-                <Regions regions={this.state.regions} {...routerProps} />
-              )}
-            />
-            <Route path="/logIn" component={LogIn} />
-            <Route path="/profile" component={Profile} />
+            {/* <Route path="/experience-detail" component={ExperienceDetail} /> */}
+
+            {/* change to RegionsCountries later */}
           </Switch>
         </Navigation>
       </BrowserRouter>
