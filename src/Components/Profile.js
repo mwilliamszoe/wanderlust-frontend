@@ -1,11 +1,22 @@
 import React, { Component } from "react";
-import { Button, Form } from "semantic-ui-react";
+import { Button, Form, Dropdown } from "semantic-ui-react";
 
 class Profile extends Component {
   state = {
     title: "",
     mood: "",
-    country_id: ""
+    country_id: "",
+    countries: []
+  };
+
+  componentDidMount = () => {
+    fetch("http://localhost:4000/countries")
+      .then(r => r.json())
+      .then(countries => {
+        this.setState({
+          countries
+        });
+      });
   };
 
   handleSubmit = e => {
@@ -32,6 +43,14 @@ class Profile extends Component {
   };
 
   render() {
+    const countryOptions = [
+      { key: "af", value: "af", flag: "af", text: "Afghanistan" }
+    ];
+
+    const countryNames = this.state.countries.map(country => {
+      return { text: country.name };
+    });
+    console.log(countryNames);
     return (
       <div>
         <h2>Submit a new adventure</h2>
@@ -54,10 +73,17 @@ class Profile extends Component {
           </Form.Field>
           <Form.Field>
             <label>Country</label>
-            <input
+            {/* <input
               placeholder="Country"
               onChange={this.handleChange}
               name="country_id"
+            /> */}
+            <Dropdown
+              placeholder="Select Country"
+              fluid
+              search
+              selection
+              options={countryNames}
             />
           </Form.Field>
           <Button type="submit">Submit</Button>
