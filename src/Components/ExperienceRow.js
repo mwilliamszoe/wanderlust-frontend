@@ -1,21 +1,22 @@
 import React from "react";
 import { Grid, Image, Rating, Icon } from "semantic-ui-react";
 import { Link, Route } from "react-router-dom";
-import ExperienceList from "./ExperienceList";
-import ExperienceDetail from "./ExperienceDetail";
+// import ExperienceList from "./ExperienceList";
+// import ExperienceDetail from "./ExperienceDetail";
 
-const ExperienceRow = (props, { match }) => {
+const ExperienceRow = props => {
   // console.log(props, "experience row");
   return (
     <Grid.Row>
       <Grid.Column width={4}>
         <Link
           to={{
-            pathname: `/experience/${props.experience.id}`
+            pathname: `/experience/${props.experience.id}`,
             // pathname: "/experience-list/:experience-detail"
-            // state: {
-            //   experience: props.experiences
-            // }
+            state: {
+              experience: props.experience
+              // foo: "foo"
+            }
           }}
         >
           <Image

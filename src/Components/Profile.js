@@ -8,9 +8,8 @@ class Profile extends Component {
     country_id: ""
   };
 
-  handleSubmit = () => {
-    // let thing = this;
-    // debugger;
+  handleSubmit = e => {
+    e.preventDefault();
     fetch("http://localhost:4000/experiences", {
       method: "POST",
       headers: {
@@ -23,6 +22,7 @@ class Profile extends Component {
         country_id: this.state.country_id
       })
     });
+    e.target.reset();
   };
 
   handleChange = event => {

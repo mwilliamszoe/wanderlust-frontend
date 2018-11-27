@@ -86,12 +86,15 @@ hr {
   position: relative;
   top: 20px;
 }
-/* .headerContainer {
-  background-image: url("https://images.unsplash.com/photo-1527348886649-3bd94dfd6694?ixlib=rb-0.3.5…yMDd9&s=31603f3…&auto=format&fit=crop&w=2767&q=80f");
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 0;
-} */
 
-/* background color */
-/* #06435d */
+.Experience-description {
+  margin: 0 10%;
+  line-height: 2;
+  font-size: 1.3;
+  font-size: 1.3em;
+}
+
+.ui.segment.packing-list,
+.ui.segment.other-info {
+  margin: 10%;
+}
