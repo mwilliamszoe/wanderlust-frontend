@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Button, Form, Input } from "semantic-ui-react";
+import { Button, Form, Input, Dropdown } from "semantic-ui-react";
 
 class Profile extends Component {
   state = {
     title: "",
     mood: "",
+    country_id: "",
     country_name: "",
     countries: []
   };
@@ -20,6 +21,7 @@ class Profile extends Component {
   };
 
   handleSubmit = e => {
+    // debugger;
     e.preventDefault();
     fetch("http://localhost:4000/experiences", {
       method: "POST",
@@ -30,7 +32,9 @@ class Profile extends Component {
       body: JSON.stringify({
         title: this.state.title,
         mood: this.state.mood,
-        country_name: this.state.country_name
+        country_id: this.state.countries.filter(c => {
+          return c.name == this.state.country_name;
+        })[0].id
       })
     });
     e.target.reset();
@@ -43,11 +47,17 @@ class Profile extends Component {
     });
   };
 
+  // getCountryObj = () => {
+  //   this.state.countries.map((country, idx) => {
+  //     return country;
+  //   });
+  // };
+
   render() {
     const countryOptions = this.state.countries.map((country, idx) => {
       return <option value={country.name} key={idx} id={country.id} />;
     });
-    console.log(countryOptions);
+    console.log(this.state);
     return (
       <div>
         <h2>Submit a new adventure</h2>
@@ -70,23 +80,12 @@ class Profile extends Component {
           </Form.Field>
           <Form.Field>
             <label>Country</label>
-            {/* <input
-              placeholder="Country"
-              onChange={this.handleChange}
-              name="country_id"
-            /> */}
-            {/* <Dropdown
-              placeholder="Select Country"
-              fluid
-              search
-              selection
-              options={countryOptions}
-            /> */}
             <Input
               list="countries"
               placeholder="Choose country..."
               onChange={this.handleChange}
               name="country_name"
+              // id="countries-input"
             />
             <datalist id="countries">{countryOptions}</datalist>
           </Form.Field>

@@ -17,7 +17,7 @@ const RegionCard = props => {
           }
         }}
       >
-        <Image src="https://images.unsplash.com/photo-1519187903022-c0055ec4036a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b745ac0a699722085f70eae036268b1f&auto=format&fit=crop&w=675&q=80" />
+        <Image src={props.region.image} />
         <Card.Content>
           <Card.Header>{props.region.name}</Card.Header>
         </Card.Content>
