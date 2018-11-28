@@ -1,19 +1,11 @@
 import React, { Component } from "react";
-import {
-  Button,
-  Form,
-  Grid,
-  Header,
-  Image,
-  Message,
-  Segment
-} from "semantic-ui-react";
+import { Button, Form, Grid, Header, Segment } from "semantic-ui-react";
 
 class Login extends Component {
   state = {
     email: "",
-    password: "",
-    token: null
+    password: ""
+    // token: null
   };
   handleSubmit = e => {
     e.preventDefault();
@@ -35,12 +27,9 @@ class Login extends Component {
           alert(r.message);
         }
         localStorage.setItem("token", r.token);
-        this.setState({
-          token: r.token
-        });
-        console.log(this.state);
       });
     e.target.reset();
+    this.props.history.push("/profile");
   };
 
   handleChange = event => {
@@ -50,7 +39,6 @@ class Login extends Component {
     });
   };
   render() {
-    // console.log(this.state);
     return (
       <div className="login-form">
         {/*

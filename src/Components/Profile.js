@@ -2,13 +2,16 @@ import React, { Component } from "react";
 import { Button, Form, Input, Dropdown } from "semantic-ui-react";
 
 class Profile extends Component {
-  state = {
-    title: "",
-    mood: "",
-    country_id: "",
-    country_name: "",
-    countries: []
-  };
+  constructor() {
+    super();
+    this.state = {
+      title: "",
+      mood: "",
+      country_id: "",
+      country_name: "",
+      countries: []
+    };
+  }
 
   componentDidMount = () => {
     fetch("http://localhost:4000/countries")
