@@ -26,7 +26,7 @@ class Profile extends Component {
     fetch("http://localhost:4000/experiences", {
       method: "POST",
       headers: {
-        Authorization: "Bearer token",
+        // Authorization: "Bearer token",
         Accept: "application/json",
         "Content-Type": "application/json"
       },
