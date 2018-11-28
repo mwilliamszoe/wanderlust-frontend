@@ -3,7 +3,7 @@ import { Image, Segment, Card } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 const RegionCard = props => {
-  console.log(props, "region card");
+  console.log(props.region);
   return (
     <Segment>
       <Card
@@ -17,7 +17,7 @@ const RegionCard = props => {
           }
         }}
       >
-        <Image src={props.region.image} />
+        <Image src={`${props.region.image}`} />
         <Card.Content>
           <Card.Header>{props.region.name}</Card.Header>
         </Card.Content>

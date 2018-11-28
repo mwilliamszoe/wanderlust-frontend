@@ -6,7 +6,9 @@ import {
   Menu,
   Responsive,
   Segment,
-  Visibility
+  Visibility,
+  Modal,
+  Form
 } from "semantic-ui-react";
 import { NavLink, Link } from "react-router-dom";
 
@@ -49,21 +51,11 @@ export default class DesktopNavigation extends Component {
                 />
                 <Menu.Item as={NavLink} name="places" to="/regions-list" />
                 <Menu.Item position="right">
-                  <Button
-                    // as="a"
-                    inverted={!fixed}
-                    as={Link}
-                    name="login"
-                    to="/profile"
-                  >
-                    Log in
+                  <Button inverted={!fixed} as={Link} name="login" to="/login">
+                    Log In
                   </Button>
                   {/* <Modal trigger={<Button inverted={!fixed}>Log in</Button>}>
                     <Form>
-                      <Form.Field>
-                        <label>Name</label>
-                        <input placeholder="Name" />
-                      </Form.Field>
                       <Form.Field>
                         <label>Email</label>
                         <input placeholder="Email" type="email" />
@@ -77,14 +69,14 @@ export default class DesktopNavigation extends Component {
                         color="green"
                         as={NavLink}
                         name="profile"
-                        to="/profile"
+                        to="/login"
                       >
                         Submit
                       </Button>
                     </Form>
                   </Modal> */}
-                  {/* <Button
-                    as={NavLink}
+                  <Button
+                    as={Link}
                     name="signup"
                     to="/signup"
                     inverted={!fixed}
@@ -92,7 +84,7 @@ export default class DesktopNavigation extends Component {
                     style={{ marginLeft: "0.5em" }}
                   >
                     Sign Up
-                  </Button> */}
+                  </Button>
                 </Menu.Item>
               </Container>
             </Menu>

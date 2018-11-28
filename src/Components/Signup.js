@@ -1,45 +1,24 @@
 import React, { Component } from "react";
-import {
-  Button,
-  Form,
-  Grid,
-  Header,
-  Image,
-  Message,
-  Segment
-} from "semantic-ui-react";
+import { Button, Form, Grid, Header, Segment } from "semantic-ui-react";
 
-class Login extends Component {
+class Signup extends Component {
   state = {
     email: "",
-    password: "",
-    token: null
+    password: ""
   };
   handleSubmit = e => {
     e.preventDefault();
-    fetch(
-      `http://localhost:4000/login?email=${this.state.email}&password=${
-        this.state.password
-      }`,
-      {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        }
-      }
-    )
-      .then(r => r.json())
-      .then(r => {
-        if (r.message) {
-          alert(r.message);
-        }
-        localStorage.setItem("token", r.token);
-        this.setState({
-          token: r.token
-        });
-        console.log(this.state);
-      });
+    fetch("http://localhost:4000/users", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password
+      })
+    });
     e.target.reset();
   };
 
@@ -50,7 +29,6 @@ class Login extends Component {
     });
   };
   render() {
-    // console.log(this.state);
     return (
       <div className="login-form">
         {/*
@@ -72,9 +50,9 @@ class Login extends Component {
         >
           <Grid.Column style={{ maxWidth: 450 }}>
             <Header as="h2" color="teal" textAlign="center">
-              Log-in to your account
+              Sign-up for a new account
             </Header>
-            <Form size="large" onSubmit={e => this.handleSubmit(e)}>
+            <Form size="large">
               <Segment stacked>
                 <Form.Input
                   fluid
@@ -83,7 +61,6 @@ class Login extends Component {
                   placeholder="E-mail address"
                   type="email"
                   onChange={this.handleChange}
-                  name="email"
                 />
                 <Form.Input
                   fluid
@@ -92,11 +69,10 @@ class Login extends Component {
                   placeholder="Password"
                   type="password"
                   onChange={this.handleChange}
-                  name="password"
                 />
 
                 <Button color="teal" fluid size="large">
-                  Login
+                  Sign-up
                 </Button>
               </Segment>
             </Form>
@@ -107,4 +83,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default Signup;

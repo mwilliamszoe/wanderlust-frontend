@@ -30,7 +30,11 @@ h1.ui.inverted.header.headerTitle {
 .ui.modal.transition.visible.active {
   margin: auto;
   height: 50%;
-  width: 50%;
+  width: 65%;
+}
+
+a.ui.green.button.active {
+  margin-top: 3%;
 }
 
 .experience-header {
@@ -38,11 +42,21 @@ h1.ui.inverted.header.headerTitle {
   border: none;
 }
 
+input#countries-input {
+  margin-left: 32%;
+  margin-right: 32%;
+}
+
 form.ui.form {
   text-align: center;
-  max-width: 50%;
+  /* max-width: 50%;
   position: relative;
-  left: 25%;
+  left: 25%; */
+}
+
+.ui.form .field {
+  clear: both;
+  margin: 5% 0 1em;
 }
 
 input {

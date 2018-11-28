@@ -26,6 +26,7 @@ class Profile extends Component {
     fetch("http://localhost:4000/experiences", {
       method: "POST",
       headers: {
+        Authorization: "Bearer token",
         Accept: "application/json",
         "Content-Type": "application/json"
       },
@@ -47,12 +48,6 @@ class Profile extends Component {
     });
   };
 
-  // getCountryObj = () => {
-  //   this.state.countries.map((country, idx) => {
-  //     return country;
-  //   });
-  // };
-
   render() {
     const countryOptions = this.state.countries.map((country, idx) => {
       return <option value={country.name} key={idx} id={country.id} />;
@@ -60,7 +55,7 @@ class Profile extends Component {
     console.log(this.state);
     return (
       <div>
-        <h2>Submit a new adventure</h2>
+        <h2>This page shows after logging in successfully</h2>
         <Form onSubmit={this.handleSubmit}>
           <Form.Field>
             <label>Title</label>
@@ -85,11 +80,13 @@ class Profile extends Component {
               placeholder="Choose country..."
               onChange={this.handleChange}
               name="country_name"
-              // id="countries-input"
+              id="countries-input"
             />
             <datalist id="countries">{countryOptions}</datalist>
           </Form.Field>
-          <Button type="submit">Submit</Button>
+          <Button type="submit" color="green">
+            Submit
+          </Button>
         </Form>
       </div>
     );

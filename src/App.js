@@ -3,6 +3,8 @@ import Navigation from "./Components/Navigation";
 // import HomepageLayout from "./Components/HomepageLayout";
 import HomePage from "./Components/HomePage";
 import HomepageLayout from "./Components/HomepageLayout";
+import Login from "./Components/Login";
+import Signup from "./Components/Signup";
 import ExperienceList from "./Components/ExperienceList";
 import CountryDetail from "./Components/CountryDetail";
 import ExperienceDetail from "./Components/ExperienceDetail";
@@ -44,6 +46,8 @@ class App extends Component {
             />
             <Route path="/regions-list" component={RegionsList} />
             <Route path="/profile" component={Profile} />
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
 
             {/* <Route path="/logIn" component={LogIn} /> */}
             {/* <Route path="/moods/:id" component={Mood} /> */}
