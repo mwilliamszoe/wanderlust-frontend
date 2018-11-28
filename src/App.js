@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Navigation from "./Components/Navigation";
-// import HomepageLayout from "./Components/HomepageLayout";
 import HomePage from "./Components/HomePage";
 import HomepageLayout from "./Components/HomepageLayout";
 import Login from "./Components/Login";

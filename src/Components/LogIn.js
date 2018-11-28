@@ -9,18 +9,17 @@ class Login extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-    fetch(
-      `http://localhost:4000/login?email=${this.state.email}&password=${
-        this.state.password
-      }`,
-      {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        }
-      }
-    )
+    fetch(`http://localhost:4000/login`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password
+      })
+    })
       .then(r => r.json())
       .then(r => {
         if (r.message) {
@@ -33,7 +32,6 @@ class Login extends Component {
   };
 
   handleChange = event => {
-    // debugger;
     this.setState({
       [event.target.name]: event.target.value
     });
