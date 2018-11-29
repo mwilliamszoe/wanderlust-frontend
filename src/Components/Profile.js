@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, Input, Dropdown } from "semantic-ui-react";
+import { Button, Form, Input } from "semantic-ui-react";
 
 class Profile extends Component {
   constructor() {
