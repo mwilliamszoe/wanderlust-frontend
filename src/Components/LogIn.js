@@ -7,6 +7,7 @@ class Login extends Component {
     password: ""
     // token: null
   };
+
   handleSubmit = e => {
     e.preventDefault();
     fetch(`http://localhost:4000/login`, {

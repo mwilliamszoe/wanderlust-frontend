@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Image, Rating, Icon } from "semantic-ui-react";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import ExperienceList from "./ExperienceList";
 // import ExperienceDetail from "./ExperienceDetail";
 

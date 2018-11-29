@@ -1,7 +1,7 @@
 import React from "react";
 import { Jumbotron } from "react-bootstrap";
 import { Segment, Card } from "semantic-ui-react";
-import TabDetail from "./TabDetail";
+import TabDetail from "../Containers/TabDetail";
 import ExperienceCard from "./ExperienceCard";
 // import { NavLink } from "react-router-dom";
 

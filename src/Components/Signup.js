@@ -20,6 +20,7 @@ class Signup extends Component {
       })
     });
     e.target.reset();
+    this.props.history.push("/profile");
   };
 
   handleChange = event => {

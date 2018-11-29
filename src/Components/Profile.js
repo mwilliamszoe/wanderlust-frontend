@@ -37,7 +37,7 @@ class Profile extends Component {
         title: this.state.title,
         mood: this.state.mood,
         country_id: this.state.countries.filter(c => {
-          return c.name == this.state.country_name;
+          return c.name === this.state.country_name;
         })[0].id
       })
     });

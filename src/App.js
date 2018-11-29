@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navigation from "./Components/Navigation";
-import HomePage from "./Components/HomePage";
-import HomepageLayout from "./Components/HomepageLayout";
+import HomePage from "./Containers/HomePage";
+// import HomepageLayout from "./Components/HomepageLayout";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import ExperienceList from "./Components/ExperienceList";

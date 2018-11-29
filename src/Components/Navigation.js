@@ -1,24 +1,40 @@
+// 1. In Navigation, when the app loads, check if a token exists in localStorage
+// 2. If it does, set `loggedIn` state to true (otherwise it's false)
+// 3. If logged in is "false", show log in and sign up
+// 4. If logged in is "true", show profile and log out
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import {
-  Button,
   Container,
   Menu,
   Responsive,
   Segment,
-  Visibility,
-  Modal,
-  Form
+  Visibility
 } from "semantic-ui-react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import Loggedin from "../Containers/Loggedin";
+import Loggedout from "../Containers/Loggedout";
 
 export default class DesktopNavigation extends Component {
-  state = {};
+  state = {
+    loggedin: false
+  };
 
-  hideFixedMenu = () => this.setState({ fixed: false });
-  showFixedMenu = () => this.setState({ fixed: true });
+  componentDidMount = () => {
+    // debugger;
+    if (localStorage.getItem("token") !== null) {
+      this.setState({
+        loggedin: true
+      });
+    }
+  };
+
+  // hideFixedMenu = () => this.setState({ fixed: false });
+  // showFixedMenu = () => this.setState({ fixed: true });
 
   render() {
+    console.log(this.state.loggedin);
     const { children } = this.props;
     const { fixed } = this.state;
 
@@ -29,12 +45,7 @@ export default class DesktopNavigation extends Component {
           onBottomPassed={this.showFixedMenu}
           onBottomPassedReverse={this.hideFixedMenu}
         >
-          <Segment
-            inverted
-            textAlign="center"
-            // style={{ minHeight: 700, padding: "1em 0em" }}
-            vertical
-          >
+          <Segment inverted textAlign="center" vertical>
             <Menu
               fixed={fixed ? "top" : null}
               inverted={!fixed}
@@ -51,40 +62,7 @@ export default class DesktopNavigation extends Component {
                 />
                 <Menu.Item as={NavLink} name="places" to="/regions-list" />
                 <Menu.Item position="right">
-                  <Button inverted={!fixed} as={Link} name="login" to="/login">
-                    Log In
-                  </Button>
-                  {/* <Modal trigger={<Button inverted={!fixed}>Log in</Button>}>
-                    <Form>
-                      <Form.Field>
-                        <label>Email</label>
-                        <input placeholder="Email" type="email" />
-                      </Form.Field>
-                      <Form.Field>
-                        <label>Password</label>
-                        <input placeholder="Password" type="password" />
-                      </Form.Field>
-                      <Button
-                        type="submit"
-                        color="green"
-                        as={NavLink}
-                        name="profile"
-                        to="/login"
-                      >
-                        Submit
-                      </Button>
-                    </Form>
-                  </Modal> */}
-                  <Button
-                    as={Link}
-                    name="signup"
-                    to="/signup"
-                    inverted={!fixed}
-                    primary={fixed}
-                    style={{ marginLeft: "0.5em" }}
-                  >
-                    Sign Up
-                  </Button>
+                  {this.state.loggedin === true ? <Loggedin /> : <Loggedout />}
                 </Menu.Item>
               </Container>
             </Menu>
@@ -100,3 +78,45 @@ export default class DesktopNavigation extends Component {
 DesktopNavigation.propTypes = {
   children: PropTypes.node
 };
+
+// const Loggedin = () => {
+//   const { children } = this.props;
+//   const { fixed } = this.state;
+//   return (
+//     <>
+//       <Button inverted={!fixed} as={Link} to="/profile">
+//         Profile
+//       </Button>
+//       <Button
+//         as={Link}
+//         to="/"
+//         inverted={!fixed}
+//         primary={fixed}
+//         style={{ marginLeft: "0.5em" }}
+//       >
+//         Logout
+//       </Button>
+//     </>
+//   );
+// };
+
+// const Loggedout = () => {
+//   const { children } = this.props;
+//   const { fixed } = this.state;
+//   return (
+//     <>
+//       <Button inverted={!fixed} as={Link} to="/login">
+//         Log in
+//       </Button>
+//       <Button
+//         as={Link}
+//         to="/signup"
+//         inverted={!fixed}
+//         primary={fixed}
+//         style={{ marginLeft: "0.5em" }}
+//       >
+//         Sign Up
+//       </Button>
+//     </>
+//   );
+// };

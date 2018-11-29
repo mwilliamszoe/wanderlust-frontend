@@ -3,6 +3,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   padding: 5px;
+  margin: 0 !important;
 }
 
 .ui.segment:first-child {
