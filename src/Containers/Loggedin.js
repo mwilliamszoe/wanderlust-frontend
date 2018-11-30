@@ -7,7 +7,7 @@ const handleClick = () => {
 };
 
 const Loggedin = () => {
-  console.log(localStorage.getItem("token"));
+  // console.log(localStorage.getItem("token"));
   //   const { children } = this.props;
   //   const { fixed } = this.state;
   return (

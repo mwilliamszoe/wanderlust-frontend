@@ -34,7 +34,6 @@ export default class DesktopNavigation extends Component {
   // showFixedMenu = () => this.setState({ fixed: true });
 
   render() {
-    console.log(this.state.loggedin);
     const { children } = this.props;
     const { fixed } = this.state;
 
@@ -57,7 +56,7 @@ export default class DesktopNavigation extends Component {
                 <Menu.Item as={NavLink} name="home" to="/" />
                 <Menu.Item
                   as={NavLink}
-                  name="experiences"
+                  name="Adventures"
                   to="/experience-list"
                 />
                 <Menu.Item as={NavLink} name="places" to="/regions-list" />

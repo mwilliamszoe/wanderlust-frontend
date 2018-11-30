@@ -6,6 +6,18 @@
   margin: 0 !important;
 }
 
+/* .ui.star.rating {
+  position: fixed;
+  top: -15%;
+  left: 2%;
+}
+
+.ui.heart.huge.rating {
+  position: fixed;
+  top: -17%;
+  left: 4%;
+} */
+
 .ui.segment:first-child {
   margin-top: 13px !important;
 }

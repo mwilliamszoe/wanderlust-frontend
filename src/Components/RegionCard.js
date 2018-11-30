@@ -3,7 +3,6 @@ import { Image, Segment, Card } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 const RegionCard = props => {
-  console.log(props.region);
   return (
     <Segment>
       <Card

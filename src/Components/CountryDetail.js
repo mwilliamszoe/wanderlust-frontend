@@ -6,8 +6,6 @@ import ExperienceCard from "./ExperienceCard";
 // import { NavLink } from "react-router-dom";
 
 const CountryDetail = props => {
-  // console.log(props.location.state);
-  console.log(props.location.state, "why");
   return (
     <div>
       <Jumbotron>

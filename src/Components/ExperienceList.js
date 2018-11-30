@@ -17,7 +17,6 @@ class ExperienceList extends Component {
       );
   };
   render() {
-    // console.log(this.state.experiences);
     const experience = this.state.experiences.map((ex, idx) => {
       return <ExperienceRow experience={ex} key={idx} />;
     });
