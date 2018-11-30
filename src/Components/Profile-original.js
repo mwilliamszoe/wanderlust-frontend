@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { Button, Form, Input, Segment } from "semantic-ui-react";
+import { Button, Form, Input } from "semantic-ui-react";
 
 class Profile extends Component {
   constructor() {
     super();
     this.state = {
       title: "",
-      // mood: "",
+      mood: "",
       country_id: "",
       country_name: "",
       countries: []
@@ -35,7 +35,7 @@ class Profile extends Component {
       },
       body: JSON.stringify({
         title: this.state.title,
-        // mood: this.state.mood,
+        mood: this.state.mood,
         country_id: this.state.countries.filter(c => {
           return c.name === this.state.country_name;
         })[0].id
@@ -55,6 +55,7 @@ class Profile extends Component {
     const countryOptions = this.state.countries.map((country, idx) => {
       return <option value={country.name} key={idx} id={country.id} />;
     });
+    console.log(this.state);
     return (
       <div>
         <h2>This page shows after logging in successfully</h2>
@@ -67,14 +68,14 @@ class Profile extends Component {
               name="title"
             />
           </Form.Field>
-          {/* <Form.Field>
+          <Form.Field>
             <label>Type</label>
             <input
               placeholder="Type"
               onChange={this.handleChange}
               name="mood"
             />
-          </Form.Field> */}
+          </Form.Field>
           <Form.Field>
             <label>Country</label>
             <Input
@@ -90,7 +91,6 @@ class Profile extends Component {
             Submit
           </Button>
         </Form>
-        <Segment />
       </div>
     );
   }

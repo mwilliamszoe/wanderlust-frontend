@@ -7,7 +7,7 @@ import Signup from "./Components/Signup";
 import ExperienceList from "./Components/ExperienceList";
 import CountryDetail from "./Components/CountryDetail";
 import ExperienceDetail from "./Components/ExperienceDetail";
-import Profile from "./Components/Profile";
+import Profile from "./Containers/Profile";
 import RegionsList from "./Components/RegionsList";
 import RegionDetail from "./Components/RegionDetail"; //change to RegionsCountries later
 import { BrowserRouter, Route, Switch } from "react-router-dom";

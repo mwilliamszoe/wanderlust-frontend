@@ -23,10 +23,14 @@ class Login extends Component {
     })
       .then(r => r.json())
       .then(r => {
+        //response.ok
+        // console.log(r);
         if (r.message) {
           alert(r.message);
         }
-        localStorage.setItem("token", r.token);
+        // debugger;
+        localStorage.setItem("token", r.jwt);
+        localStorage.setItem("user_id", r.user.id);
       });
     e.target.reset();
     this.props.history.push("/profile");

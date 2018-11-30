@@ -2,7 +2,7 @@ import React from "react";
 import { Jumbotron } from "react-bootstrap";
 import { Segment, Card } from "semantic-ui-react";
 import TabDetail from "../Containers/TabDetail";
-import ExperienceCard from "./ExperienceCard";
+import ExperienceCard from "../Containers/ExperienceCard";
 // import { NavLink } from "react-router-dom";
 
 const CountryDetail = props => {
@@ -26,11 +26,7 @@ const CountryDetail = props => {
           excite - and bewilder - the traveler today.
         </div>
         <Segment>
-          <Card.Group itemsPerRow={6}>
-            <ExperienceCard />
-            <ExperienceCard />
-            <ExperienceCard />
-          </Card.Group>
+          <Card.Group itemsPerRow={6}>{/* <ExperienceCard /> */}</Card.Group>
         </Segment>
         <TabDetail />
         <TabDetail />
