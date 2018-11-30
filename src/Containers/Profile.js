@@ -3,12 +3,12 @@ import React, { Component } from "react";
 import NewExperienceForm from "../Components/NewExperienceForm";
 import MyExperiences from "../Components/MyExperiences";
 
-const Profile = () => {
+const Profile = props => {
   return (
     <div>
       <NewExperienceForm />
       {/* <MySaves /> */}
-      {/* <MyExperiences /> */}
+      <MyExperiences setCurrentUserCallback={props.setCurrentUserCallback} />
     </div>
   );
 };

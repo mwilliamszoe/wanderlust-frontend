@@ -4,8 +4,8 @@ import { Button, Form, Grid, Header, Segment } from "semantic-ui-react";
 class Login extends Component {
   state = {
     email: "",
-    password: ""
-    // token: null
+    password: "",
+    user_experiences: []
   };
 
   handleSubmit = e => {
@@ -23,17 +23,14 @@ class Login extends Component {
     })
       .then(r => r.json())
       .then(r => {
-        //response.ok
-        // console.log(r);
         if (r.message) {
           alert(r.message);
         }
-        // debugger;
         localStorage.setItem("token", r.jwt);
-        localStorage.setItem("user_id", r.user.id);
+        this.props.setCurrentUserCallback(r.experiences);
+        this.props.history.push("/profile");
       });
     e.target.reset();
-    this.props.history.push("/profile");
   };
 
   handleChange = event => {

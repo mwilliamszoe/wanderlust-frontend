@@ -25,7 +25,15 @@ class App extends Component {
         })
       );
   };
+
+  setCurrentUserCallback = user_ex_arr => {
+    this.setState({
+      user_experiences: user_ex_arr
+    });
+  };
+
   render() {
+    console.log(this.state.user_experiences);
     return (
       <BrowserRouter>
         <Navigation>
@@ -44,9 +52,27 @@ class App extends Component {
               component={RegionDetail}
             />
             <Route path="/regions-list" component={RegionsList} />
-            <Route path="/profile" component={Profile} />
-            <Route path="/login" component={Login} />
+            <Route
+              path="/profile"
+              render={routeProps => (
+                <Profile
+                  {...routeProps}
+                  setCurrentUserCallback={this.setCurrentUserCallback}
+                />
+              )}
+            />
+            <Route
+              path="/login"
+              render={routeProps => (
+                <Login
+                  {...routeProps}
+                  setCurrentUserCallback={this.setCurrentUserCallback}
+                />
+              )}
+            />
             <Route path="/signup" component={Signup} />
+            {/* <Route path="/profile" component={Profile} /> */}
+            {/* <Route path="/login" component={Login} /> */}
 
             {/* <Route path="/moods/:id" component={Mood} /> */}
             {/* <Route
