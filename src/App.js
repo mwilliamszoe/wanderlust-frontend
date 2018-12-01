@@ -14,7 +14,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 class App extends Component {
   state = {
-    regions: []
+    regions: [],
+    user_experiences: []
   };
   componentDidMount = () => {
     fetch("http://localhost:4000/regions")
@@ -58,6 +59,7 @@ class App extends Component {
                 <Profile
                   {...routeProps}
                   setCurrentUserCallback={this.setCurrentUserCallback}
+                  user_experiences={this.state.user_experiences}
                 />
               )}
             />

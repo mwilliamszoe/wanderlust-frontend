@@ -8,7 +8,10 @@ const Profile = props => {
     <div>
       <NewExperienceForm />
       {/* <MySaves /> */}
-      <MyExperiences setCurrentUserCallback={props.setCurrentUserCallback} />
+      <MyExperiences
+        setCurrentUserCallback={props.setCurrentUserCallback}
+        user_experiences={props.user_experiences}
+      />
     </div>
   );
 };

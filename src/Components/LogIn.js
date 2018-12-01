@@ -25,6 +25,7 @@ class Login extends Component {
       .then(r => {
         if (r.message) {
           alert(r.message);
+          this.props.history.push("/login");
         }
         localStorage.setItem("token", r.jwt);
         this.props.setCurrentUserCallback(r.experiences);
