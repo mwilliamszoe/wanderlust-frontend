@@ -34,7 +34,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.user_experiences);
     return (
       <BrowserRouter>
         <Navigation>
