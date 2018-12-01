@@ -18,7 +18,7 @@ import Loggedout from "../Containers/Loggedout";
 
 export default class DesktopNavigation extends Component {
   state = {
-    loggedin: false
+    loggedin: true
   };
 
   componentDidMount = () => {
@@ -29,9 +29,6 @@ export default class DesktopNavigation extends Component {
       });
     }
   };
-
-  // hideFixedMenu = () => this.setState({ fixed: false });
-  // showFixedMenu = () => this.setState({ fixed: true });
 
   render() {
     const { children } = this.props;

@@ -8,24 +8,15 @@ const handleClick = () => {
 
 const Loggedin = () => {
   // console.log(localStorage.getItem("token"));
-  //   const { children } = this.props;
-  //   const { fixed } = this.state;
   return (
     <>
-      <Button
-        //   inverted={!fixed}
-        inverted
-        as={Link}
-        to="/profile"
-      >
+      <Button inverted as={Link} to="/profile">
         Profile
       </Button>
       <Button
         as={Link}
         to="/"
-        // inverted={!fixed}
         inverted
-        // primary={fixed}
         style={{ marginLeft: "0.5em" }}
         onClick={handleClick}
       >

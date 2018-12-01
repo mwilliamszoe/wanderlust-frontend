@@ -7,19 +7,12 @@ const Loggedout = () => {
   //   const { fixed } = this.state;
   return (
     <>
-      <Button
-        //   inverted={!fixed}
-        inverted
-        as={Link}
-        to="/login"
-      >
+      <Button inverted as={Link} to="/login">
         Log in
       </Button>
       <Button
         as={Link}
         to="/signup"
-        // inverted={!fixed}
-        // primary={fixed}
         inverted
         color="teal"
         style={{ marginLeft: "0.5em" }}

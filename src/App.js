@@ -57,7 +57,6 @@ class App extends Component {
               render={routeProps => (
                 <Profile
                   {...routeProps}
-                  setCurrentUserCallback={this.setCurrentUserCallback}
                   user_experiences={this.state.user_experiences}
                 />
               )}

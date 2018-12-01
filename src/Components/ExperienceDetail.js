@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import { Jumbotron } from "react-bootstrap";
-import { Segment, List, Grid, Header, Table } from "semantic-ui-react";
+import {
+  Segment,
+  List,
+  Grid,
+  Header,
+  Table,
+  Container
+} from "semantic-ui-react";
 
 class ExperienceDetail extends Component {
   render() {
@@ -13,7 +20,7 @@ class ExperienceDetail extends Component {
           <hr />
         </Jumbotron>
         <Segment className="experience">
-          <div className="Experience-description">
+          <Container className="Experience-description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed
             fermentum nunc, sit amet gravida ex. Suspendisse potenti. In sed
             tellus vel leo vehicula semper et vel sem. Sed ac placerat velit.
@@ -43,7 +50,7 @@ class ExperienceDetail extends Component {
             vestibulum bibendum ipsum. Quisque convallis bibendum lorem, quis
             tincidunt diam molestie eget. Proin tristique vestibulum lectus nec
             elementum.
-          </div>
+          </Container>
         </Segment>
         <Segment className="packing-list">
           <Header>Packing List</Header>
