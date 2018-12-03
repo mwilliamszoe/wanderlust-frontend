@@ -16,7 +16,8 @@ class App extends Component {
   state = {
     regions: [],
     userExperiences: [],
-    experiences: []
+    // experiences: [],
+    loggedin: false
   };
   componentDidMount = () => {
     fetch("http://localhost:4000/regions")
@@ -28,23 +29,38 @@ class App extends Component {
       );
   };
 
+  setLoggedIn = loggedin => {
+    this.setState({
+      loggedin: loggedin
+    });
+  };
+
+  setLoggedOut = loggedout => {
+    this.setState({
+      loggedin: loggedout
+    });
+  };
+
   setCurrentUserCallback = userExperienceArray => {
     this.setState({
       userExperiences: userExperienceArray
     });
   };
 
+  componentDidMount = () => {
+    // debugger;
+    if (localStorage.getItem("token") !== null) {
+      this.setState({
+        loggedin: true
+      });
+    }
+  };
+
   render() {
-    console.log(this.state.experiences);
     return (
       <BrowserRouter>
-        <Navigation>
+        <Navigation loggedin={this.state.loggedin}>
           <Switch>
-            {/* <Route
-              exact
-              path="/"
-              render={routerProps => <HomePage {...routerProps} />}
-            /> */}
             <Route exact path="/" component={HomePage} />
             <Route path="/experience-list" component={ExperienceList} />
             <Route path="/experience/:id" component={ExperienceDetail} />
@@ -69,6 +85,8 @@ class App extends Component {
                 <Login
                   {...routeProps}
                   setCurrentUserCallback={this.setCurrentUserCallback}
+                  setLoggedIn={this.setLoggedIn}
+                  setLoggedOut={this.setLoggedOut}
                 />
               )}
             />

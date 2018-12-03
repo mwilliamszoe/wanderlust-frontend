@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 // import ExperienceDetail from "./ExperienceDetail";
 
 class ExperienceRow extends Component {
-  // console.log(props, "experience row");
   constructor() {
     super();
     this.state = {
@@ -14,12 +13,12 @@ class ExperienceRow extends Component {
   }
 
   handleClick = () => {
-    this.setState({
-      liked: !this.state.liked
-    });
+    // this.setState({
+    //   liked: !this.state.liked
+    // });
+    return;
   };
   render() {
-    console.log(this.props.experience);
     return (
       <Grid.Row>
         <Grid.Column width={4}>
@@ -37,10 +36,11 @@ class ExperienceRow extends Component {
         <Grid.Column width={12}>
           <div className="heart-title">
             <h2>{this.props.experience.title}</h2>
-            <Button inverted onClick={this.handleClick}>
+            {/* <Button inverted onClick={this.handleClick}>
               <Rating icon="heart" size="huge" className="like" />
-            </Button>
+            </Button> */}
           </div>
+          <br />
           <p>
             Donec dolor nulla, sodales at porttitor non, hendrerit vel velit. Ut
             vulputate pharetra dignissim. Cras laoreet id arcu eu finibus.

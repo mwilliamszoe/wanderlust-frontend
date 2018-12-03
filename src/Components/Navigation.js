@@ -17,23 +17,10 @@ import Loggedin from "../Containers/Loggedin";
 import Loggedout from "../Containers/Loggedout";
 
 export default class DesktopNavigation extends Component {
-  state = {
-    loggedin: false
-  };
-
-  componentDidMount = () => {
-    // debugger;
-    if (localStorage.getItem("token") !== null) {
-      this.setState({
-        loggedin: true
-      });
-    }
-  };
-
   render() {
     const { children } = this.props;
-    const { fixed } = this.state;
-
+    // const { fixed } = this.state;
+    // console.log("loggedin?", this.props.loggedin);
     return (
       <Responsive minWidth={Responsive.onlyTablet.minWidth}>
         <Visibility
@@ -43,10 +30,13 @@ export default class DesktopNavigation extends Component {
         >
           <Segment inverted textAlign="center" vertical>
             <Menu
-              fixed={fixed ? "top" : null}
-              inverted={!fixed}
-              pointing={!fixed}
-              secondary={!fixed}
+              // fixed={fixed ? "top" : null}
+              // inverted={!fixed}
+              // pointing={!fixed}
+              // secondary={!fixed}
+              inverted
+              pointing
+              secondary
               size="large"
             >
               <Container>
@@ -58,7 +48,11 @@ export default class DesktopNavigation extends Component {
                 />
                 <Menu.Item as={NavLink} name="places" to="/regions-list" />
                 <Menu.Item position="right">
-                  {this.state.loggedin === true ? <Loggedin /> : <Loggedout />}
+                  {this.props.loggedin === true ? (
+                    <Loggedin loggedin={this.props.loggedin} />
+                  ) : (
+                    <Loggedout loggedin={this.props.loggedin} />
+                  )}
                 </Menu.Item>
               </Container>
             </Menu>

@@ -30,6 +30,7 @@ class Login extends Component {
         localStorage.setItem("token", r.jwt);
         this.props.setCurrentUserCallback(r.experiences);
         this.props.history.push("/profile");
+        this.props.setLoggedIn(true);
       });
     e.target.reset();
   };

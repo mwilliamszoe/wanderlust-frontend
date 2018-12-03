@@ -5,8 +5,7 @@ import NewExperienceForm from "../Components/NewExperienceForm";
 import ExperienceCard from "../Containers/ExperienceCard";
 
 const Profile = props => {
-  // console.log(props.userExperiences);
-
+  // console.log("user ex arr", props.userExperiences);
   return (
     <>
       <Container className="profile-container">

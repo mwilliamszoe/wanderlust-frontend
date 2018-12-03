@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-const Loggedout = () => {
+const Loggedout = props => {
   //   const { children } = this.props;
   //   const { fixed } = this.state;
   return (

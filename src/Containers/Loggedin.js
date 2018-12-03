@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 const handleClick = () => {
   localStorage.removeItem("token");
+  this.props.setLoggedOut(false);
 };
 
-const Loggedin = () => {
-  // console.log(localStorage.getItem("token"));
+const Loggedin = props => {
   return (
     <>
       <Button inverted as={Link} to="/profile" color="teal">

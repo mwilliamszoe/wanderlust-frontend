@@ -23,9 +23,49 @@ class ExperienceDetail extends Component {
     this.setState({
       liked: !this.state.liked
     });
+    if (this.state.liked === false) {
+      fetch("http://localhost:4000/likes", {
+        method: "POST",
+        body: JSON.stringify({
+          user_id: 1,
+          experience_id: 3
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      console.log("cliked like");
+    }
+    if (this.state.liked === true) {
+      console.log("clicked unlike");
+    }
+    // if (this.state.liked === false) {
+    //   fetch("http://localhost:4000/likes", {
+    //     method: "DELETE",
+    //     body: JSON.stringify({
+    //       id: 1
+    //     }),
+    //     headers: {
+    //       "Content-Type": "application/json"
+    //     }
+    //   });
+    // }
+    // if (this.state.liked === true) {
+    // fetch("http://localhost:4000/likes", {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     experience_id: 41,
+    //     user_id: 9
+    //   }),
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   }
+    // });
+    // }
   };
 
   render() {
+    console.log("liked?", this.state.liked);
     const ex = this.props.location.state.experience;
     return (
       <div>
