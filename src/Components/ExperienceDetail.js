@@ -6,15 +6,32 @@ import {
   Grid,
   Header,
   Table,
-  Container
+  Container,
+  Button,
+  Rating
 } from "semantic-ui-react";
 
 class ExperienceDetail extends Component {
+  constructor() {
+    super();
+    this.state = {
+      liked: false
+    };
+  }
+
+  handleClick = () => {
+    this.setState({
+      liked: !this.state.liked
+    });
+  };
+
   render() {
-    // debugger;
     const ex = this.props.location.state.experience;
     return (
       <div>
+        <Button inverted onClick={this.handleClick} className="saved">
+          <Rating icon="heart" size="massive" />
+        </Button>
         <Jumbotron>
           <h1>{ex.title}</h1>
           <hr />
@@ -52,38 +69,37 @@ class ExperienceDetail extends Component {
             elementum.
           </Container>
         </Segment>
+        <hr />
         <Segment className="packing-list">
-          <Header>Packing List</Header>
+          <Header className="packing-list-title">Packing List</Header>
           <Grid columns={3}>
             <Grid.Row>
               <Grid.Column>
                 <List>
-                  <List.Item>Apples</List.Item>
-                  <List.Item>Pears</List.Item>
-                  <List.Item>Oranges</List.Item>
+                  <List.Item className="packing-list-item">Socks</List.Item>
+                  <List.Item className="packing-list-item">Shoes</List.Item>
+                  <List.Item className="packing-list-item">Hat</List.Item>
+                  <List.Item className="packing-list-item">Belt</List.Item>
+                  <List.Item className="packing-list-item">Sweater</List.Item>
                 </List>
               </Grid.Column>
               <Grid.Column>
                 <List>
-                  <List.Item>Apples</List.Item>
-                  <List.Item>Pears</List.Item>
-                  <List.Item>Oranges</List.Item>
-                </List>
-              </Grid.Column>
-              <Grid.Column>
-                <List>
-                  <List.Item>Apples</List.Item>
-                  <List.Item>Pears</List.Item>
-                  <List.Item>Oranges</List.Item>
+                  <List.Item className="packing-list-item">Camera</List.Item>
+                  <List.Item className="packing-list-item">Laptop</List.Item>
+                  <List.Item className="packing-list-item">Usb</List.Item>
+                  <List.Item className="packing-list-item">Sunscreen</List.Item>
+                  <List.Item className="packing-list-item">Goggles</List.Item>
                 </List>
               </Grid.Column>
             </Grid.Row>
           </Grid>
         </Segment>
+        <hr />
         <Segment className="other-info">
-          <Header>Other info</Header>
+          <Header className="other-info-title">Other info</Header>
 
-          <Table basic="very">
+          <Table basic="very" className="other-info">
             <Table.Body>
               <Table.Row>
                 <Table.HeaderCell>Price</Table.HeaderCell>
@@ -99,6 +115,10 @@ class ExperienceDetail extends Component {
               </Table.Row>
               <Table.Row>
                 <Table.HeaderCell>Hours</Table.HeaderCell>
+                <Table.Cell>Approved</Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.HeaderCell>Website</Table.HeaderCell>
                 <Table.Cell>Approved</Table.Cell>
               </Table.Row>
             </Table.Body>

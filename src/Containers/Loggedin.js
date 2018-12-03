@@ -10,7 +10,7 @@ const Loggedin = () => {
   // console.log(localStorage.getItem("token"));
   return (
     <>
-      <Button inverted as={Link} to="/profile">
+      <Button inverted as={Link} to="/profile" color="teal">
         Profile
       </Button>
       <Button

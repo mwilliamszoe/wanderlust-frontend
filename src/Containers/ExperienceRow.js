@@ -19,37 +19,28 @@ class ExperienceRow extends Component {
     });
   };
   render() {
-    // console.log(this.state.liked);
+    console.log(this.props.experience);
     return (
       <Grid.Row>
         <Grid.Column width={4}>
           <Link
             to={{
               pathname: `/experience/${this.props.experience.id}`,
-              // pathname: "/experience-list/:experience-detail"
               state: {
                 experience: this.props.experience
-                // foo: "foo"
               }
             }}
           >
-            <Image
-              src="https://images.unsplash.com/photo-1534321238895-da3ab632df3e?ixlib=rb-0.3.5&s=3c59de3ec4c8e3dc03dce8c89b0fc6a0&auto=format&fit=crop&w=1050&q=80"
-              // as={Link}
-              // to={{
-              //   pathname: `/experience/${props.experience.id}`
-              //   // state: {
-              //   //   experience: props.experiences
-              //   // }
-              // }}
-            />
+            <Image src="https://images.unsplash.com/photo-1534321238895-da3ab632df3e?ixlib=rb-0.3.5&s=3c59de3ec4c8e3dc03dce8c89b0fc6a0&auto=format&fit=crop&w=1050&q=80" />
           </Link>
         </Grid.Column>
         <Grid.Column width={12}>
-          <h3>{this.props.experience.title}</h3>
-          {/* <Icon name="tree" />
-          <Icon name="fire" />
-          <Icon name="paw" /> */}
+          <div className="heart-title">
+            <h2>{this.props.experience.title}</h2>
+            <Button inverted onClick={this.handleClick}>
+              <Rating icon="heart" size="huge" className="like" />
+            </Button>
+          </div>
           <p>
             Donec dolor nulla, sodales at porttitor non, hendrerit vel velit. Ut
             vulputate pharetra dignissim. Cras laoreet id arcu eu finibus.
@@ -59,10 +50,6 @@ class ExperienceRow extends Component {
             lorem purus, gravida vitae vehicula nec, tristique eget dui.
           </p>
         </Grid.Column>
-        {/* <Rating maxRating={5} clearable icon="star" /> */}
-        <Button inverted onClick={this.handleClick}>
-          <Rating icon="heart" size="huge" />
-        </Button>
       </Grid.Row>
     );
   }

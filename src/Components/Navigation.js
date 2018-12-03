@@ -18,7 +18,7 @@ import Loggedout from "../Containers/Loggedout";
 
 export default class DesktopNavigation extends Component {
   state = {
-    loggedin: true
+    loggedin: false
   };
 
   componentDidMount = () => {
@@ -74,45 +74,3 @@ export default class DesktopNavigation extends Component {
 DesktopNavigation.propTypes = {
   children: PropTypes.node
 };
-
-// const Loggedin = () => {
-//   const { children } = this.props;
-//   const { fixed } = this.state;
-//   return (
-//     <>
-//       <Button inverted={!fixed} as={Link} to="/profile">
-//         Profile
-//       </Button>
-//       <Button
-//         as={Link}
-//         to="/"
-//         inverted={!fixed}
-//         primary={fixed}
-//         style={{ marginLeft: "0.5em" }}
-//       >
-//         Logout
-//       </Button>
-//     </>
-//   );
-// };
-
-// const Loggedout = () => {
-//   const { children } = this.props;
-//   const { fixed } = this.state;
-//   return (
-//     <>
-//       <Button inverted={!fixed} as={Link} to="/login">
-//         Log in
-//       </Button>
-//       <Button
-//         as={Link}
-//         to="/signup"
-//         inverted={!fixed}
-//         primary={fixed}
-//         style={{ marginLeft: "0.5em" }}
-//       >
-//         Sign Up
-//       </Button>
-//     </>
-//   );
-// };

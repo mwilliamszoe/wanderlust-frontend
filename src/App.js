@@ -15,7 +15,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 class App extends Component {
   state = {
     regions: [],
-    user_experiences: []
+    userExperiences: [],
+    experiences: []
   };
   componentDidMount = () => {
     fetch("http://localhost:4000/regions")
@@ -27,13 +28,14 @@ class App extends Component {
       );
   };
 
-  setCurrentUserCallback = user_ex_arr => {
+  setCurrentUserCallback = userExperienceArray => {
     this.setState({
-      user_experiences: user_ex_arr
+      userExperiences: userExperienceArray
     });
   };
 
   render() {
+    console.log(this.state.experiences);
     return (
       <BrowserRouter>
         <Navigation>
@@ -57,7 +59,7 @@ class App extends Component {
               render={routeProps => (
                 <Profile
                   {...routeProps}
-                  user_experiences={this.state.user_experiences}
+                  userExperiences={this.state.userExperiences}
                 />
               )}
             />

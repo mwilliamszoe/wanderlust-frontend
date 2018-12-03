@@ -85,7 +85,7 @@ class NewExperienceForm extends Component {
             />
             <datalist id="countries">{countryOptions}</datalist>
           </Form.Field>
-          <Button type="submit" color="green">
+          <Button type="submit" color="teal">
             Submit
           </Button>
         </Form>
