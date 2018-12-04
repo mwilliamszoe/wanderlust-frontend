@@ -73,7 +73,6 @@ class App extends Component {
         <Navigation loggedin={this.state.loggedin}>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            {/* <Route path="/experience-list" component={ExperienceList} /> */}
             <Route
               path="/experience-list"
               render={routeProps => (
@@ -85,7 +84,6 @@ class App extends Component {
                 />
               )}
             />
-            {/* <Route path="/experience/:id" component={ExperienceDetail} /> */}
             <Route
               path="/experience/:id"
               render={routeProps => (
@@ -109,6 +107,7 @@ class App extends Component {
                   {...routeProps}
                   userExperiences={this.state.userExperiences}
                   likes={this.state.likes}
+                  experiences={this.state.experiences}
                 />
               )}
             />

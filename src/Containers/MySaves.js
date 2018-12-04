@@ -1,21 +1,20 @@
 import React from "react";
-// import { Container, Image } from "semantic-ui-react";
-// import ExperienceCard from "./ExperienceCard";
+import ExperienceCard from "./ExperienceCard";
+import { Card } from "semantic-ui-react";
 
 const MySaves = props => {
   const like = props.likes.filter(like => {
     return like.user_id === parseInt(localStorage.getItem("user"));
   });
-
-  return (
-    <>
-      <h1>My Saves</h1>
-
-      {like.map((like, idx) => {
-        return <p>experience# {like.experience_id}</p>;
-      })}
-    </>
-  );
+  const likedExperience = props.experiences.filter(experience => {
+    return like.filter(like => {
+      return experience.id === like.experience_id;
+    });
+  });
+  const myExperience = likedExperience.map(experience => {
+    return <ExperienceCard experience={experience} />;
+  });
+  return myExperience;
 };
 
 export default MySaves;

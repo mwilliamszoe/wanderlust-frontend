@@ -39,10 +39,10 @@ class Signup extends Component {
       .then(r => r.json())
       .then(r => {
         if (r.message) {
-          // alert(r.message);
+          alert(r.message);
           this.props.history.push("/login");
         }
-        // console.log(r);
+        console.log(r);
         // debugger;
         localStorage.setItem("token", r.jwt);
         localStorage.setItem("user", r.user.id);
