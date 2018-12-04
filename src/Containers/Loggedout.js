@@ -2,9 +2,7 @@ import React from "react";
 import { Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-const Loggedout = props => {
-  //   const { children } = this.props;
-  //   const { fixed } = this.state;
+const Loggedout = () => {
   return (
     <>
       <Button inverted as={Link} to="/login">

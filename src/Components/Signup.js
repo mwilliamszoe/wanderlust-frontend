@@ -6,9 +6,26 @@ class Signup extends Component {
     email: "",
     password: ""
   };
+  // handleSubmit = e => {
+  //   e.preventDefault();
+  //   fetch("http://localhost:4000/signup", {
+  //     method: "POST",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //       email: this.state.email,
+  //       password: this.state.password
+  //     })
+  //   });
+  //   e.target.reset();
+  //   this.props.history.push("/profile");
+  // };
+
   handleSubmit = e => {
     e.preventDefault();
-    fetch("http://localhost:4000/signup", {
+    fetch(`http://localhost:4000/${this.props.route}`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -18,9 +35,23 @@ class Signup extends Component {
         email: this.state.email,
         password: this.state.password
       })
-    });
+    })
+      .then(r => r.json())
+      .then(r => {
+        if (r.message) {
+          // alert(r.message);
+          this.props.history.push("/login");
+        }
+        // console.log(r);
+        // debugger;
+        localStorage.setItem("token", r.jwt);
+        localStorage.setItem("user", r.user.id);
+        localStorage.setItem("email", r.user.email);
+        this.props.setCurrentUserCallback(r.experiences);
+        this.props.history.push("/profile");
+        this.props.setLoggedIn(true);
+      });
     e.target.reset();
-    this.props.history.push("/profile");
   };
 
   handleChange = event => {
@@ -51,9 +82,11 @@ class Signup extends Component {
         >
           <Grid.Column style={{ maxWidth: 450 }}>
             <Header as="h2" color="teal" textAlign="center">
-              Sign-up for a new account
+              {this.props.route === "signup"
+                ? "Sign-up for a new account"
+                : "Login to your account"}
             </Header>
-            <Form size="large">
+            <Form size="large" onSubmit={this.handleSubmit}>
               <Segment stacked>
                 <Form.Input
                   fluid
@@ -62,6 +95,7 @@ class Signup extends Component {
                   placeholder="E-mail address"
                   type="email"
                   onChange={this.handleChange}
+                  name="email"
                 />
                 <Form.Input
                   fluid
@@ -70,10 +104,11 @@ class Signup extends Component {
                   placeholder="Password"
                   type="password"
                   onChange={this.handleChange}
+                  name="password"
                 />
 
                 <Button color="teal" fluid size="large">
-                  Sign-up
+                  {this.props.route === "signup" ? "Sign-up" : "Login"}
                 </Button>
               </Segment>
             </Form>

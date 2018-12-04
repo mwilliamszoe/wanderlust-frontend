@@ -27,45 +27,31 @@ class ExperienceDetail extends Component {
       fetch("http://localhost:4000/likes", {
         method: "POST",
         body: JSON.stringify({
-          user_id: 1,
-          experience_id: 3
+          user_id: localStorage.getItem("user"),
+          experience_id: this.props.location.state.experience.id
         }),
         headers: {
           "Content-Type": "application/json"
         }
       });
-      console.log("cliked like");
+      console.log("LIKED!");
     }
     if (this.state.liked === true) {
-      console.log("clicked unlike");
+      const experienceLikes = this.props.location.state.experience.likes;
+      const currentUsersLike = experienceLikes.find(like => {
+        return like.user_id === parseInt(localStorage.getItem("user"));
+      });
+      console.log("Delete this:", currentUsersLike);
+      fetch(`http://localhost:4000/likes/${currentUsersLike.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
     }
-    // if (this.state.liked === false) {
-    //   fetch("http://localhost:4000/likes", {
-    //     method: "DELETE",
-    //     body: JSON.stringify({
-    //       id: 1
-    //     }),
-    //     headers: {
-    //       "Content-Type": "application/json"
-    //     }
-    //   });
-    // }
-    // if (this.state.liked === true) {
-    // fetch("http://localhost:4000/likes", {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     experience_id: 41,
-    //     user_id: 9
-    //   }),
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   }
-    // });
-    // }
   };
 
   render() {
-    console.log("liked?", this.state.liked);
     const ex = this.props.location.state.experience;
     return (
       <div>

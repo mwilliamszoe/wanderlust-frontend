@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import Navigation from "./Components/Navigation";
 import HomePage from "./Containers/HomePage";
 // import HomepageLayout from "./Components/HomepageLayout";
-import Login from "./Components/Login";
+// import Login from "./unused/Login";
 import Signup from "./Components/Signup";
-import ExperienceList from "./Components/ExperienceList";
+import ExperienceList from "./Containers/ExperienceList";
 import CountryDetail from "./Components/CountryDetail";
 import ExperienceDetail from "./Components/ExperienceDetail";
 import Profile from "./Containers/Profile";
@@ -16,17 +16,37 @@ class App extends Component {
   state = {
     regions: [],
     userExperiences: [],
-    // experiences: [],
-    loggedin: false
+    loggedin: false,
+    likes: [],
+    experiences: []
   };
   componentDidMount = () => {
     fetch("http://localhost:4000/regions")
       .then(r => r.json())
-      .then(r =>
+      .then(regions =>
         this.setState({
-          regions: r
+          regions
         })
       );
+    fetch("http://localhost:4000/likes")
+      .then(r => r.json())
+      .then(likes =>
+        this.setState({
+          likes
+        })
+      );
+    fetch("http://localhost:4000/experiences")
+      .then(r => r.json())
+      .then(experiences =>
+        this.setState({
+          experiences
+        })
+      );
+    if (localStorage.getItem("token") !== null) {
+      this.setState({
+        loggedin: true
+      });
+    }
   };
 
   setLoggedIn = loggedin => {
@@ -47,23 +67,35 @@ class App extends Component {
     });
   };
 
-  componentDidMount = () => {
-    // debugger;
-    if (localStorage.getItem("token") !== null) {
-      this.setState({
-        loggedin: true
-      });
-    }
-  };
-
   render() {
     return (
       <BrowserRouter>
         <Navigation loggedin={this.state.loggedin}>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route path="/experience-list" component={ExperienceList} />
-            <Route path="/experience/:id" component={ExperienceDetail} />
+            {/* <Route path="/experience-list" component={ExperienceList} /> */}
+            <Route
+              path="/experience-list"
+              render={routeProps => (
+                <ExperienceList
+                  {...routeProps}
+                  userExperiences={this.state.userExperiences}
+                  likes={this.state.likes}
+                  experiences={this.state.experiences}
+                />
+              )}
+            />
+            {/* <Route path="/experience/:id" component={ExperienceDetail} /> */}
+            <Route
+              path="/experience/:id"
+              render={routeProps => (
+                <ExperienceDetail
+                  {...routeProps}
+                  userExperiences={this.state.userExperiences}
+                  likes={this.state.likes}
+                />
+              )}
+            />
             <Route path="/countries/:country" component={CountryDetail} />
             <Route
               path="/regions-list/:region-detail"
@@ -76,32 +108,34 @@ class App extends Component {
                 <Profile
                   {...routeProps}
                   userExperiences={this.state.userExperiences}
+                  likes={this.state.likes}
                 />
               )}
             />
             <Route
               path="/login"
               render={routeProps => (
-                <Login
+                <Signup
                   {...routeProps}
                   setCurrentUserCallback={this.setCurrentUserCallback}
                   setLoggedIn={this.setLoggedIn}
                   setLoggedOut={this.setLoggedOut}
+                  route={"login"}
                 />
               )}
             />
-            <Route path="/signup" component={Signup} />
-            {/* <Route path="/profile" component={Profile} /> */}
-            {/* <Route path="/login" component={Login} /> */}
-
-            {/* <Route path="/moods/:id" component={Mood} /> */}
-            {/* <Route
-              path="/country-experiences/:id"
-              component={CountryExperiences}
-            /> */}
-            {/* <Route path="/experience-detail" component={ExperienceDetail} /> */}
-
-            {/* change to RegionsCountries later */}
+            <Route
+              path="/signup"
+              render={routeProps => (
+                <Signup
+                  {...routeProps}
+                  setCurrentUserCallback={this.setCurrentUserCallback}
+                  setLoggedIn={this.setLoggedIn}
+                  setLoggedOut={this.setLoggedOut}
+                  route={"signup"}
+                />
+              )}
+            />
           </Switch>
         </Navigation>
       </BrowserRouter>

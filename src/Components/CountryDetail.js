@@ -2,7 +2,7 @@ import React from "react";
 import { Jumbotron } from "react-bootstrap";
 import { Segment, Card } from "semantic-ui-react";
 import TabDetail from "../Containers/TabDetail";
-import ExperienceCard from "../Containers/ExperienceCard";
+// import ExperienceCard from "../Containers/ExperienceCard";
 // import { NavLink } from "react-router-dom";
 
 const CountryDetail = props => {

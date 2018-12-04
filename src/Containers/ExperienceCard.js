@@ -3,7 +3,6 @@ import { Card, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 const ExperienceCard = props => {
-  // console.log(props.experience.id);
   return (
     <div>
       <Card>
@@ -22,8 +21,6 @@ const ExperienceCard = props => {
           </Card.Content>
         </Link>
       </Card>
-
-      {/* {props.children} */}
     </div>
   );
 };

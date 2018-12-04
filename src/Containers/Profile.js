@@ -3,6 +3,7 @@ import { Container, Image } from "semantic-ui-react";
 import { Nav, NavItem } from "react-bootstrap";
 import NewExperienceForm from "../Components/NewExperienceForm";
 import ExperienceCard from "../Containers/ExperienceCard";
+import MySaves from "../Containers/MySaves";
 
 const Profile = props => {
   // console.log("user ex arr", props.userExperiences);
@@ -22,7 +23,13 @@ const Profile = props => {
         <NavItem className="profile-nav-btn">My Adventures</NavItem>
         <NavItem className="profile-nav-btn">New Adventure</NavItem>
       </Nav>
-      {/* <ExperienceCard /> */}
+      {/* {localStorage.getItem("email") ? <h1>: is signed in</h1> : <h1>No one signed in</h1>} */}
+      <h1>
+        {localStorage.getItem("email")
+          ? `${localStorage.getItem("email")} is signed in`
+          : "no one signed in"}
+      </h1>
+      <MySaves likes={props.likes} />
       <NewExperienceForm />
       {props.userExperiences.map((ex, idx) => {
         return <ExperienceCard experience={ex} key={idx} />;

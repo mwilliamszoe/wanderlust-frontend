@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Image, Rating, Icon, Button } from "semantic-ui-react";
+import { Grid, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 // import ExperienceList from "./ExperienceList";
 // import ExperienceDetail from "./ExperienceDetail";
@@ -12,12 +12,6 @@ class ExperienceRow extends Component {
     };
   }
 
-  handleClick = () => {
-    // this.setState({
-    //   liked: !this.state.liked
-    // });
-    return;
-  };
   render() {
     return (
       <Grid.Row>
@@ -36,9 +30,6 @@ class ExperienceRow extends Component {
         <Grid.Column width={12}>
           <div className="heart-title">
             <h2>{this.props.experience.title}</h2>
-            {/* <Button inverted onClick={this.handleClick}>
-              <Rating icon="heart" size="huge" className="like" />
-            </Button> */}
           </div>
           <br />
           <p>

@@ -27,7 +27,9 @@ class Login extends Component {
           alert(r.message);
           this.props.history.push("/login");
         }
+        // console.log(r.user);
         localStorage.setItem("token", r.jwt);
+        localStorage.setItem("user", r.user.id);
         this.props.setCurrentUserCallback(r.experiences);
         this.props.history.push("/profile");
         this.props.setLoggedIn(true);
