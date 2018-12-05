@@ -43,9 +43,17 @@ class App extends Component {
         })
       );
     if (localStorage.getItem("token") !== null) {
-      this.setState({
-        loggedin: true
-      });
+      ///make get req to /finduserfromtoken with attached token
+      //if the user is found, call setUser
+      fetch("http://localhost:4000/finduserfromtoken", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+      })
+        .then(res => res.json())
+        .then(user => {
+          this.setCurrentUser(user);
+        });
     }
   };
 
@@ -63,7 +71,8 @@ class App extends Component {
 
   setCurrentUser = currentUser => {
     this.setState({
-      currentUser
+      currentUser,
+      loggedin: true
     });
   };
 

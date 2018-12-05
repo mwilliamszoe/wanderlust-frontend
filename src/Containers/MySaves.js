@@ -3,10 +3,12 @@ import ExperienceCard from "./ExperienceCard";
 import { Card } from "semantic-ui-react";
 
 const MySaves = props => {
-  console.log(props.currentUser.like);
-  const mySavedExperiences = props.currentUser.experience.filter(experience => {
-    return experience.id;
-  });
+  console.log(props.currentUser.liked_experiences);
+  const mySavedExperiences = props.currentUser.experiences.filter(
+    experience => {
+      return experience.id;
+    }
+  );
   console.log(mySavedExperiences);
   return null;
   // const like = props.likes.filter(like => {
