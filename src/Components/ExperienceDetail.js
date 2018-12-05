@@ -23,41 +23,39 @@ class ExperienceDetail extends Component {
     this.setState({
       liked: !this.state.liked
     });
-    if (this.state.liked === false) {
-      fetch("http://localhost:4000/likes", {
-        method: "POST",
-        body: JSON.stringify({
-          user_id: localStorage.getItem("user"),
-          experience_id: this.props.location.state.experience.id
-        }),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
-      console.log("LIKED!");
-    }
-    if (this.state.liked === true) {
-      const experienceLikes = this.props.location.state.experience.likes;
-      const currentUsersLike = experienceLikes.find(like => {
-        return like.user_id === parseInt(localStorage.getItem("user"));
-      });
-      console.log("Delete this:", currentUsersLike);
-      fetch(`http://localhost:4000/likes/${currentUsersLike.id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
-    }
+    // if (this.state.liked === false) {
+    //   fetch("http://localhost:4000/likes", {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       user_id: localStorage.getItem("user"),
+    //       experience_id: this.props.location.state.experience.id
+    //     }),
+    //     headers: {
+    //       "Content-Type": "application/json"
+    //     }
+    //   });
+    //   console.log("LIKED!");
+    // }
+    // if (this.state.liked === true) {
+    //   const experienceLikes = this.props.location.state.experience.likes;
+    //   const currentUsersLike = experienceLikes.find(like => {
+    //     return like.user_id === parseInt(localStorage.getItem("user"));
+    //   });
+    //   console.log("Delete this:", currentUsersLike);
+    //   fetch(`http://localhost:4000/likes/${currentUsersLike.id}`, {
+    //     method: "DELETE",
+    //     headers: {
+    //       "Content-Type": "application/json"
+    //     }
+    //   });
+    // }
   };
 
   render() {
     const ex = this.props.location.state.experience;
     return (
       <div>
-        <Button inverted onClick={this.handleClick} className="saved">
-          <Rating icon="heart" size="massive" />
-        </Button>
+        <Button icon="heart" onClick={this.handleClick} />
         <Jumbotron>
           <h1>{ex.title}</h1>
           <hr />

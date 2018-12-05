@@ -25,9 +25,9 @@ const CountryDetail = props => {
           more ways of culture exchange in centuries past, and will continue to
           excite - and bewilder - the traveler today.
         </div>
-        <Segment>
-          <Card.Group itemsPerRow={6}>{/* <ExperienceCard /> */}</Card.Group>
-        </Segment>
+        {/* <Segment>
+          <Card.Group itemsPerRow={6}>{<ExperienceCard />}</Card.Group>
+        </Segment> */}
         <TabDetail />
         <TabDetail />
         <TabDetail />

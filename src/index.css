@@ -11,8 +11,12 @@
 .nav-pills > li > a {
   border-radius: 4px;
   color: #00b8ae;
-  font-size: 1.1em;
+  font-size: 1.5em;
   font-weight: bold;
+}
+
+.nav {
+  margin-top: 1%;
 }
 
 .profile-img-txt {
@@ -26,6 +30,8 @@
 
 img.ui.image.profile-image {
   width: 100%;
+  max-width: 100%;
+  max-height: 400px;
 }
 
 .ui.container.profile-container {
@@ -93,7 +99,8 @@ input {
 }
 
 img.ui.image {
-  max-height: 250px;
+  max-height: 200px;
+  max-width: 300px;
 }
 
 .content {
@@ -102,7 +109,7 @@ img.ui.image {
 
 .jumbotron {
   background-color: #fff;
-  margin-top: -5%;
+  margin-top: 5%;
   text-align: center;
   padding: 0;
 }
@@ -125,11 +132,13 @@ hr {
 .country-description {
   border: none;
   box-shadow: none;
+  font-size: 1.2em;
+  line-height: 2.2;
 }
 .country-info {
   position: relative;
-  top: 100px;
-  margin-bottom: 150px;
+  top: 75px;
+  margin-bottom: 75px;
 }
 
 .tab {
@@ -176,11 +185,6 @@ table.ui.very.basic.table.other-info {
   font-size: 15px;
 }
 
-button.ui.inverted.button.saved {
-  position: relative;
-  margin: 3%;
-}
-
 .ui.heart.rating .icon {
   font-size: 2em;
 }
@@ -188,4 +192,14 @@ button.ui.inverted.button.saved {
 .heart-title {
   display: flex;
   align-items: center;
+}
+
+.ex-row {
+  position: relative;
+  left: 3%;
+  font-size: 1.2em;
+}
+
+.ex-row-txt {
+  line-height: 1.8;
 }

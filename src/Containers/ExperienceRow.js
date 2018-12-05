@@ -27,12 +27,10 @@ class ExperienceRow extends Component {
             <Image src="https://images.unsplash.com/photo-1534321238895-da3ab632df3e?ixlib=rb-0.3.5&s=3c59de3ec4c8e3dc03dce8c89b0fc6a0&auto=format&fit=crop&w=1050&q=80" />
           </Link>
         </Grid.Column>
-        <Grid.Column width={12}>
-          <div className="heart-title">
-            <h2>{this.props.experience.title}</h2>
-          </div>
+        <Grid.Column width={12} className="ex-row">
+          <h2>{this.props.experience.title}</h2>
           <br />
-          <p>
+          <p className="ex-row-txt">
             Donec dolor nulla, sodales at porttitor non, hendrerit vel velit. Ut
             vulputate pharetra dignissim. Cras laoreet id arcu eu finibus.
             Vestibulum et metus dictum eros commodo consequat. Pellentesque et

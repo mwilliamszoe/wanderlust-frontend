@@ -10,7 +10,6 @@ const RegionCard = props => {
         as={Link}
         to={{
           pathname: "/regions-list/:region-detail",
-          //change to RegionsCountries later
           state: {
             region: props.region
           }

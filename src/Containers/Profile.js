@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Image, Card } from "semantic-ui-react";
+import { Container, Image, Card, Segment } from "semantic-ui-react";
 import { Nav, NavItem } from "react-bootstrap";
 import NewExperienceForm from "../Components/NewExperienceForm";
 import ExperienceCard from "../Containers/ExperienceCard";
@@ -40,10 +40,8 @@ class Profile extends Component {
   };
 
   render() {
-    const myExperiences = this.props.userExperiences.map((ex, idx) => {
-      return <ExperienceCard experience={ex} key={idx} />;
-    });
-    console.log(myExperiences);
+    const currentUser = this.props.currentUser;
+    console.log(currentUser);
     return (
       <>
         <Container className="profile-container">
@@ -72,24 +70,39 @@ class Profile extends Component {
             New Adventure
           </NavItem>
         </Nav>
-        {this.state.displaySaves ? (
-          <Card.Group itemsPerRow={4}>
-            <MySaves
-              likes={this.props.likes}
-              experiences={this.props.experiences}
-            />
-          </Card.Group>
-        ) : null}
-        {this.state.displayForm ? <NewExperienceForm /> : null}
-        {this.state.displayMyExperiences ? (
-          <Card.Group>
-            {myExperiences.length === 0 ? (
+        <Segment>
+          {this.state.displaySaves ? (
+            <Card.Group>
+              <MySaves
+                // likes={this.props.likes}
+                // experiences={this.props.experiences}
+                currentUser={currentUser}
+              />
+            </Card.Group>
+          ) : null}
+          {this.state.displayForm ? <NewExperienceForm /> : null}
+          {this.state.displayMyExperiences ? (
+            <Card.Group>
+              {/* {currentUser.experience.length === 0 ? (
               <h1>"Nothing Yet!"</h1>
             ) : (
-              myExperiences
-            )}
-          </Card.Group>
-        ) : null}
+              currentUser.experience.map((ex, idx) => {
+                return <ExperienceCard experience={ex} key={idx} />;
+              })
+            )} */}
+
+              {currentUser.experience.map((ex, idx) => {
+                return (
+                  <ExperienceCard
+                    experience={ex}
+                    key={idx}
+                    className="ex-card"
+                  />
+                );
+              })}
+            </Card.Group>
+          ) : null}
+        </Segment>
       </>
     );
   }

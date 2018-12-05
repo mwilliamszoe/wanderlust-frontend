@@ -15,10 +15,10 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 class App extends Component {
   state = {
     regions: [],
-    userExperiences: [],
-    loggedin: false,
-    likes: [],
-    experiences: []
+    currentUser: {},
+    loggedin: false
+    // likes: [],
+    // experiences: []
   };
   componentDidMount = () => {
     fetch("http://localhost:4000/regions")
@@ -28,13 +28,13 @@ class App extends Component {
           regions
         })
       );
-    fetch("http://localhost:4000/likes")
-      .then(r => r.json())
-      .then(likes =>
-        this.setState({
-          likes
-        })
-      );
+    // fetch("http://localhost:4000/likes")
+    //   .then(r => r.json())
+    //   .then(likes =>
+    //     this.setState({
+    //       likes
+    //     })
+    //   );
     fetch("http://localhost:4000/experiences")
       .then(r => r.json())
       .then(experiences =>
@@ -61,9 +61,9 @@ class App extends Component {
     });
   };
 
-  setCurrentUserCallback = userExperienceArray => {
+  setCurrentUser = currentUser => {
     this.setState({
-      userExperiences: userExperienceArray
+      currentUser
     });
   };
 
@@ -78,8 +78,8 @@ class App extends Component {
               render={routeProps => (
                 <ExperienceList
                   {...routeProps}
-                  userExperiences={this.state.userExperiences}
-                  likes={this.state.likes}
+                  // userExperiences={this.state.userExperiences}
+                  // likes={this.state.likes}
                   experiences={this.state.experiences}
                 />
               )}
@@ -89,8 +89,8 @@ class App extends Component {
               render={routeProps => (
                 <ExperienceDetail
                   {...routeProps}
-                  userExperiences={this.state.userExperiences}
-                  likes={this.state.likes}
+                  // userExperiences={this.state.userExperiences}
+                  // likes={this.state.likes}
                 />
               )}
             />
@@ -105,9 +105,9 @@ class App extends Component {
               render={routeProps => (
                 <Profile
                   {...routeProps}
-                  userExperiences={this.state.userExperiences}
-                  likes={this.state.likes}
-                  experiences={this.state.experiences}
+                  currentUser={this.state.currentUser}
+                  // likes={this.state.likes}
+                  // experiences={this.state.experiences}
                 />
               )}
             />
@@ -116,7 +116,7 @@ class App extends Component {
               render={routeProps => (
                 <Signup
                   {...routeProps}
-                  setCurrentUserCallback={this.setCurrentUserCallback}
+                  setCurrentUser={this.setCurrentUser}
                   setLoggedIn={this.setLoggedIn}
                   setLoggedOut={this.setLoggedOut}
                   route={"login"}
@@ -128,7 +128,7 @@ class App extends Component {
               render={routeProps => (
                 <Signup
                   {...routeProps}
-                  setCurrentUserCallback={this.setCurrentUserCallback}
+                  setCurrentUser={this.setCurrentUser}
                   setLoggedIn={this.setLoggedIn}
                   setLoggedOut={this.setLoggedOut}
                   route={"signup"}

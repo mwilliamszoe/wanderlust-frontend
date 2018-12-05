@@ -6,22 +6,6 @@ class Signup extends Component {
     email: "",
     password: ""
   };
-  // handleSubmit = e => {
-  //   e.preventDefault();
-  //   fetch("http://localhost:4000/signup", {
-  //     method: "POST",
-  //     headers: {
-  //       Accept: "application/json",
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify({
-  //       email: this.state.email,
-  //       password: this.state.password
-  //     })
-  //   });
-  //   e.target.reset();
-  //   this.props.history.push("/profile");
-  // };
 
   handleSubmit = e => {
     e.preventDefault();
@@ -40,14 +24,15 @@ class Signup extends Component {
       .then(r => {
         if (r.message) {
           alert(r.message);
-          this.props.history.push("/login");
+          // this.props.history.push("/login");
         }
-        console.log(r);
+        // console.log(r);
         // debugger;
         localStorage.setItem("token", r.jwt);
-        localStorage.setItem("user", r.user.id);
+        localStorage.setItem("user_id", r.user.id);
         localStorage.setItem("email", r.user.email);
-        this.props.setCurrentUserCallback(r.experiences);
+        this.props.setCurrentUser(r);
+        // this.props.setCurrentUserLikes(r.like);
         this.props.history.push("/profile");
         this.props.setLoggedIn(true);
       });
@@ -55,7 +40,6 @@ class Signup extends Component {
   };
 
   handleChange = event => {
-    // debugger;
     this.setState({
       [event.target.name]: event.target.value
     });
@@ -63,11 +47,6 @@ class Signup extends Component {
   render() {
     return (
       <div className="login-form">
-        {/*
-      Heads up! The styles below are necessary for the correct render of this example.
-      You can do same with CSS, the main idea is that all the elements up to the `Grid`
-      below must have a height of 100%.
-    */}
         <style>{`
       body > div,
       body > div > div,
