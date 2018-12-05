@@ -17,8 +17,8 @@ class App extends Component {
     regions: [],
     currentUser: {},
     loggedin: false,
-    likes: []
-    // experiences: []
+    likes: [],
+    experiences: []
   };
   componentDidMount = () => {
     fetch("http://localhost:4000/regions")
@@ -67,6 +67,12 @@ class App extends Component {
     });
   };
 
+  resetExperiences = experiences => {
+    this.setState({
+      experiences
+    });
+  };
+
   render() {
     return (
       <BrowserRouter>
@@ -107,7 +113,9 @@ class App extends Component {
                   {...routeProps}
                   currentUser={this.state.currentUser}
                   // likes={this.state.likes}
-                  // experiences={this.state.experiences}
+                  resetExperiences={experiences =>
+                    this.resetExperiences(experiences)
+                  }
                 />
               )}
             />

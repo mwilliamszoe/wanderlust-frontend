@@ -6,7 +6,6 @@ class NewExperienceForm extends Component {
     super();
     this.state = {
       title: "",
-      mood: "",
       country_id: "",
       country_name: "",
       countries: []
@@ -24,28 +23,32 @@ class NewExperienceForm extends Component {
   };
 
   handleSubmit = e => {
-    // debugger;
     e.preventDefault();
     fetch("http://localhost:4000/experiences", {
       method: "POST",
       headers: {
-        // Authorization: "Bearer token",
         Accept: "application/json",
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
         title: this.state.title,
-        // mood: this.state.mood,
-        country_id: this.state.countries.filter(c => {
+        country_id: this.state.countries.find(c => {
           return c.name === this.state.country_name;
-        })[0].id
+        }).id,
+        user_id: parseInt(localStorage.getItem("user_id"))
       })
+    }).then(() => {
+      fetch("http://localhost:4000/experiences")
+        .then(r => r.json())
+        .then(response => {
+          this.props.resetExperiences(response);
+        });
     });
     e.target.reset();
+    this.props.history.push("/experience-list");
   };
 
   handleChange = event => {
-    // debugger;
     this.setState({
       [event.target.name]: event.target.value
     });
@@ -66,14 +69,6 @@ class NewExperienceForm extends Component {
               name="title"
             />
           </Form.Field>
-          {/* <Form.Field>
-            <label>Type</label>
-            <input
-              placeholder="Type"
-              onChange={this.handleChange}
-              name="mood"
-            />
-          </Form.Field> */}
           <Form.Field>
             <label>Country</label>
             <Input

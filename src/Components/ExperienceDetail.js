@@ -11,50 +11,38 @@ import {
 } from "semantic-ui-react";
 
 class ExperienceDetail extends Component {
-  constructor() {
-    super();
-    this.state = {
-      liked: true
-    };
-  }
-
   handleClick = () => {
-    const uid = localStorage.getItem("user_id");
-    const ex = this.props.location.state.experience;
-    fetch(`http://localhost:4000/users/${uid}/liked_experiences/:${ex.id}`)
+    let uid = parseInt(localStorage.getItem("user_id"));
+    let ex = this.props.location.state.experience.id;
+    fetch(`http://localhost:4000/users/${uid}/liked_experiences/${ex}`)
       .then(r => r.json())
-      .then(response => console.log(response));
-    // this.setState({
-    //   liked: !this.state.liked
-    // });
-    //   fetch("http://localhost:4000/likes", {
-    //     method: "POST",
-    //     body: JSON.stringify({
-    //       user_id: localStorage.getItem("user"),
-    //       experience_id: this.props.location.state.experience.id
-    //     }),
-    //     headers: {
-    //       "Content-Type": "application/json"
-    //     }
-    //   });
-    //   console.log("LIKED!");
-    // if (this.state.liked === true) {
-    //   const experienceLikes = this.props.location.state.experience.likes;
-    //   const currentUsersLike = experienceLikes.find(like => {
-    //     return like.user_id === parseInt(localStorage.getItem("user"));
-    //   });
-    //   console.log("Delete this:", currentUsersLike);
-    //   fetch(`http://localhost:4000/likes/${currentUsersLike.id}`, {
-    //     method: "DELETE",
-    //     headers: {
-    //       "Content-Type": "application/json"
-    //     }
-    //   });
-    // }
+      .then(response => {
+        console.log(response);
+        if (response !== null) {
+          fetch(`http://localhost:4000/likes/${response.id}`, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json"
+            }
+          }).then(() => console.log("like should be deleted"));
+        } else {
+          fetch("http://localhost:4000/likes", {
+            method: "POST",
+            body: JSON.stringify({
+              user_id: parseInt(localStorage.getItem("user_id")),
+              experience_id: this.props.location.state.experience.id
+            }),
+            headers: {
+              "Content-Type": "application/json"
+            }
+          })
+            .then(r => r.json)
+            .then(r => console.log(r, "newly created like"));
+        }
+      });
   };
 
   render() {
-    // console.log(this.props.location.state.experience);
     const ex = this.props.location.state.experience;
     return (
       <div>

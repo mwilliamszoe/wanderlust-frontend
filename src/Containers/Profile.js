@@ -41,7 +41,6 @@ class Profile extends Component {
 
   render() {
     const currentUser = this.props.currentUser;
-    console.log(currentUser);
     return (
       <>
         <Container className="profile-container">
@@ -80,7 +79,9 @@ class Profile extends Component {
               />
             </Card.Group>
           ) : null}
-          {this.state.displayForm ? <NewExperienceForm /> : null}
+          {this.state.displayForm ? (
+            <NewExperienceForm resetExperiences={this.props.resetExperiences} />
+          ) : null}
           {this.state.displayMyExperiences ? (
             <Card.Group>
               {/* {currentUser.experience.length === 0 ? (

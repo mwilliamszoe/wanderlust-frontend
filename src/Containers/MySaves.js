@@ -3,7 +3,8 @@ import ExperienceCard from "./ExperienceCard";
 import { Card } from "semantic-ui-react";
 
 const MySaves = props => {
-  return <h1>some saves</h1>;
+  console.log(props);
+  return null;
   // const like = props.likes.filter(like => {
   //   return like.user_id === parseInt(localStorage.getItem("user"));
   // });

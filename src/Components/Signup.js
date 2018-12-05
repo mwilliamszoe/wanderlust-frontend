@@ -32,7 +32,6 @@ class Signup extends Component {
         localStorage.setItem("user_id", r.user.id);
         localStorage.setItem("email", r.user.email);
         this.props.setCurrentUser(r);
-        // this.props.setCurrentUserLikes(r.like);
         this.props.history.push("/profile");
         this.props.setLoggedIn(true);
       });
