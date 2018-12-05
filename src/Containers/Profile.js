@@ -72,11 +72,7 @@ class Profile extends Component {
         <Segment>
           {this.state.displaySaves ? (
             <Card.Group>
-              <MySaves
-                // likes={this.props.likes}
-                // experiences={this.props.experiences}
-                currentUser={currentUser}
-              />
+              <MySaves currentUser={currentUser} />
             </Card.Group>
           ) : null}
           {this.state.displayForm ? (

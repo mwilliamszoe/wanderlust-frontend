@@ -15,7 +15,7 @@ export default class DesktopNavigation extends Component {
   render() {
     const { children } = this.props;
     return (
-      <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+      <Responsive>
         <Visibility
           once={false}
           onBottomPassed={this.showFixedMenu}
