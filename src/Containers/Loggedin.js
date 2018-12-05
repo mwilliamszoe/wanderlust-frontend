@@ -7,7 +7,7 @@ const handleClick = () => {
   this.props.setLoggedOut(false);
 };
 
-const Loggedin = props => {
+const Loggedin = () => {
   return (
     <>
       <Button inverted as={Link} to="/profile" color="teal">

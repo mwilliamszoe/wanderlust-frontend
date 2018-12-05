@@ -5,13 +5,6 @@ import { Link } from "react-router-dom";
 // import ExperienceDetail from "./ExperienceDetail";
 
 class ExperienceRow extends Component {
-  constructor() {
-    super();
-    this.state = {
-      liked: false
-    };
-  }
-
   render() {
     return (
       <Grid.Row>

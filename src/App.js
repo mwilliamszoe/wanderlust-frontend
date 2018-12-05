@@ -16,8 +16,8 @@ class App extends Component {
   state = {
     regions: [],
     currentUser: {},
-    loggedin: false
-    // likes: [],
+    loggedin: false,
+    likes: []
     // experiences: []
   };
   componentDidMount = () => {
@@ -28,13 +28,13 @@ class App extends Component {
           regions
         })
       );
-    // fetch("http://localhost:4000/likes")
-    //   .then(r => r.json())
-    //   .then(likes =>
-    //     this.setState({
-    //       likes
-    //     })
-    //   );
+    fetch("http://localhost:4000/likes")
+      .then(r => r.json())
+      .then(likes =>
+        this.setState({
+          likes
+        })
+      );
     fetch("http://localhost:4000/experiences")
       .then(r => r.json())
       .then(experiences =>
@@ -90,7 +90,7 @@ class App extends Component {
                 <ExperienceDetail
                   {...routeProps}
                   // userExperiences={this.state.userExperiences}
-                  // likes={this.state.likes}
+                  likes={this.state.likes}
                 />
               )}
             />
