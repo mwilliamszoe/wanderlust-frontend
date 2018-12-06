@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Button, Form, Input } from "semantic-ui-react";
+import { Button, Form, Input, Popup } from "semantic-ui-react";
+import { Redirect } from "react-router-dom";
 
 class NewExperienceForm extends Component {
   constructor() {
@@ -20,6 +21,10 @@ class NewExperienceForm extends Component {
           countries
         });
       });
+  };
+
+  redirectToProfile = () => {
+    return <Redirect to="/experience-list" />;
   };
 
   handleSubmit = e => {
@@ -45,7 +50,7 @@ class NewExperienceForm extends Component {
         });
     });
     e.target.reset();
-    this.props.history.push("/profile");
+    // alert("Adventure Added!");
   };
 
   handleChange = event => {
@@ -81,9 +86,19 @@ class NewExperienceForm extends Component {
             />
             <datalist id="countries">{countryOptions}</datalist>
           </Form.Field>
-          <Button type="submit" color="teal">
+          {/* <Button type="submit" color="teal">
             Submit
-          </Button>
+          </Button> */}
+          <Popup
+            trigger={
+              <Button type="submit" color="teal">
+                Submit
+              </Button>
+            }
+            content="Adventure Added!"
+            on="click"
+            position="top right"
+          />
         </Form>
       </div>
     );

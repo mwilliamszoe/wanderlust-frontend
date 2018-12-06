@@ -7,7 +7,8 @@ import {
   Header,
   Table,
   Container,
-  Button
+  Button,
+  Popup
 } from "semantic-ui-react";
 
 class ExperienceDetail extends Component {
@@ -65,8 +66,15 @@ class ExperienceDetail extends Component {
       <div>
         <Jumbotron>
           <h1>{ex.title}</h1>
-
-          <Button icon="heart" color="red" onClick={this.handleClick} />
+          {/* <Button icon="heart" color="red" onClick={this.handleClick} /> */}
+          <Popup
+            trigger={
+              <Button icon="heart" color="red" onClick={this.handleClick} />
+            }
+            content="Liked!"
+            on="click"
+            position="top right"
+          />
           <hr />
         </Jumbotron>
         <Segment className="experience">
