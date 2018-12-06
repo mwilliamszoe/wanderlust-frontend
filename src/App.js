@@ -28,13 +28,13 @@ class App extends Component {
           regions
         })
       );
-    fetch("http://localhost:4000/likes")
-      .then(r => r.json())
-      .then(likes =>
-        this.setState({
-          likes
-        })
-      );
+    // fetch("http://localhost:4000/likes")
+    //   .then(r => r.json())
+    //   .then(likes =>
+    //     this.setState({
+    //       likes
+    //     })
+    //   );
     fetch("http://localhost:4000/experiences")
       .then(r => r.json())
       .then(experiences =>
@@ -43,8 +43,6 @@ class App extends Component {
         })
       );
     if (localStorage.getItem("token") !== null) {
-      ///make get req to /finduserfromtoken with attached token
-      //if the user is found, call setUser
       fetch("http://localhost:4000/finduserfromtoken", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -72,7 +70,7 @@ class App extends Component {
   setCurrentUser = currentUser => {
     this.setState({
       currentUser,
-      loggedin: true
+      loggedin: !!currentUser
     });
   };
 
@@ -82,8 +80,22 @@ class App extends Component {
     });
   };
 
+  resetLikedExperiences = likedExperiences => {
+    // this.setState({
+    //   likes: likedExperiences
+    // });
+    fetch("http://localhost:4000/finduserfromtoken", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    })
+      .then(res => res.json())
+      .then(user => {
+        this.setCurrentUser(user);
+      });
+  };
+
   render() {
-    console.log(this.state.currentUser);
     return (
       <BrowserRouter>
         <Navigation loggedin={this.state.loggedin}>
@@ -94,7 +106,6 @@ class App extends Component {
               render={routeProps => (
                 <ExperienceList
                   {...routeProps}
-                  // userExperiences={this.state.userExperiences}
                   // likes={this.state.likes}
                   experiences={this.state.experiences}
                 />
@@ -105,8 +116,10 @@ class App extends Component {
               render={routeProps => (
                 <ExperienceDetail
                   {...routeProps}
-                  // userExperiences={this.state.userExperiences}
-                  likes={this.state.likes}
+                  resetLikedExperiences={likedExperiences =>
+                    this.resetLikedExperiences(likedExperiences)
+                  }
+                  // likedExperiences={this.state.likedExperiences}
                 />
               )}
             />
@@ -122,9 +135,8 @@ class App extends Component {
                 <Profile
                   {...routeProps}
                   currentUser={this.state.currentUser}
-                  // likes={this.state.likes}
-                  resetExperiences={experiences =>
-                    this.resetExperiences(experiences)
+                  resetExperiences={likedExperiences =>
+                    this.resetExperiences(likedExperiences)
                   }
                 />
               )}

@@ -3,7 +3,6 @@ import { Container, Image, Card, Segment } from "semantic-ui-react";
 import { Nav, NavItem } from "react-bootstrap";
 import NewExperienceForm from "../Components/NewExperienceForm";
 import ExperienceCard from "../Containers/ExperienceCard";
-import MySaves from "../Containers/MySaves";
 
 class Profile extends Component {
   constructor() {

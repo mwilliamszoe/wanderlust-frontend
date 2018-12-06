@@ -24,10 +24,7 @@ class Signup extends Component {
       .then(r => {
         if (r.message) {
           alert(r.message);
-          // this.props.history.push("/login");
         }
-        // console.log(r);
-        // debugger;
         localStorage.setItem("token", r.jwt);
         localStorage.setItem("user_id", r.user.id);
         localStorage.setItem("email", r.user.email);

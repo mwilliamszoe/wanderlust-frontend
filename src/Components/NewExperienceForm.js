@@ -45,7 +45,7 @@ class NewExperienceForm extends Component {
         });
     });
     e.target.reset();
-    this.props.history.push("/experience-list");
+    this.props.history.push("/profile");
   };
 
   handleChange = event => {
@@ -55,6 +55,7 @@ class NewExperienceForm extends Component {
   };
 
   render() {
+    console.log(this.props);
     const countryOptions = this.state.countries.map((country, idx) => {
       return <option value={country.name} key={idx} id={country.id} />;
     });

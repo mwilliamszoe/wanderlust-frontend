@@ -24,7 +24,16 @@ class ExperienceDetail extends Component {
             headers: {
               "Content-Type": "application/json"
             }
-          }).then(() => console.log("like should be deleted"));
+          })
+            // .then(() => alert("unliked!"));
+            .then(() => {
+              fetch("http://localhost:4000/likes")
+                .then(r => r.json())
+                .then(response => {
+                  this.props.resetLikedExperiences(response);
+                  alert("unliked!");
+                });
+            });
         } else {
           fetch("http://localhost:4000/likes", {
             method: "POST",
@@ -36,8 +45,16 @@ class ExperienceDetail extends Component {
               "Content-Type": "application/json"
             }
           })
-            .then(r => r.json)
-            .then(r => console.log(r, "newly created like"));
+            // .then(r => r.json)
+            // .then(r => alert("liked!"));
+            .then(() => {
+              fetch("http://localhost:4000/likes")
+                .then(r => r.json())
+                .then(response => {
+                  this.props.resetLikedExperiences(response);
+                  alert("liked!");
+                });
+            });
         }
       });
   };
@@ -65,24 +82,14 @@ class ExperienceDetail extends Component {
             volutpat enim commodo.
             <br />
             <br />
-            Duis vel mauris ac tortor facilisis iaculis. Nullam sit amet orci et
-            elit volutpat gravida sed quis urna. Suspendisse dapibus dui risus,
-            ut tempor odio dictum vel. Nullam molestie tortor dui. Donec eget
-            lectus at est scelerisque vestibulum. Praesent fringilla volutpat
-            tellus non bibendum. Nunc tincidunt bibendum felis eu pulvinar.
-            Vestibulum lobortis sollicitudin nulla, id scelerisque eros
-            tincidunt in. Suspendisse risus tortor, porttitor nec est sed,
-            iaculis dapibus dolor. Nam mauris odio, vestibulum et condimentum
-            sed, vestibulum eget metus. Aliquam congue quam nec lobortis semper.
-            Curabitur id diam leo. Suspendisse potenti. Sed maximus, ante sed
-            pellentesque rutrum, lorem velit hendrerit dui, tempus varius eros
-            neque vel augue. Nullam facilisis nulla lectus, et ullamcorper
-            sapien cursus eget. Mauris in euismod dolor. Donec sed hendrerit
-            leo, in efficitur neque. Phasellus sed tempor enim, tristique
-            fringilla metus. Pellentesque sapien mauris, iaculis eu eros quis,
-            vestibulum bibendum ipsum. Quisque convallis bibendum lorem, quis
-            tincidunt diam molestie eget. Proin tristique vestibulum lectus nec
-            elementum.
+            Sed maximus, ante sed pellentesque rutrum, lorem velit hendrerit
+            dui, tempus varius eros neque vel augue. Nullam facilisis nulla
+            lectus, et ullamcorper sapien cursus eget. Mauris in euismod dolor.
+            Donec sed hendrerit leo, in efficitur neque. Phasellus sed tempor
+            enim, tristique fringilla metus. Pellentesque sapien mauris, iaculis
+            eu eros quis, vestibulum bibendum ipsum. Quisque convallis bibendum
+            lorem, quis tincidunt diam molestie eget. Proin tristique vestibulum
+            lectus nec elementum.
           </Container>
         </Segment>
         <hr />
