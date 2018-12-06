@@ -41,6 +41,7 @@ class Profile extends Component {
 
   render() {
     const currentUser = this.props.currentUser;
+
     return (
       <>
         <Container className="profile-container">
@@ -50,9 +51,6 @@ class Profile extends Component {
           />
           <div className="profile-img-txt">
             Where will your journey take you...
-            {localStorage.getItem("email")
-              ? `${localStorage.getItem("email")}`
-              : null}
           </div>
         </Container>
         <Nav bsStyle="pills" justified>
@@ -71,32 +69,38 @@ class Profile extends Component {
         </Nav>
         <Segment>
           {this.state.displaySaves ? (
-            <Card.Group>
-              <MySaves currentUser={currentUser} />
+            <Card.Group className="my-saves">
+              {currentUser.liked_experiences
+                ? currentUser.liked_experiences.map((ex, idx) => {
+                    return (
+                      <ExperienceCard
+                        experience={ex}
+                        key={idx}
+                        className="ex-card"
+                      />
+                    );
+                  })
+                : null}
             </Card.Group>
           ) : null}
           {this.state.displayForm ? (
             <NewExperienceForm resetExperiences={this.props.resetExperiences} />
           ) : null}
           {this.state.displayMyExperiences ? (
-            <Card.Group>
-              {/* {currentUser.experience.length === 0 ? (
-              <h1>"Nothing Yet!"</h1>
-            ) : (
-              currentUser.experience.map((ex, idx) => {
-                return <ExperienceCard experience={ex} key={idx} />;
-              })
-            )} */}
-
-              {currentUser.experience.map((ex, idx) => {
-                return (
-                  <ExperienceCard
-                    experience={ex}
-                    key={idx}
-                    className="ex-card"
-                  />
-                );
-              })}
+            <Card.Group className="my-saves">
+              {currentUser.experiences.length === 0 ? (
+                <h1>"Nothing Yet!"</h1>
+              ) : (
+                currentUser.experiences.map((ex, idx) => {
+                  return (
+                    <ExperienceCard
+                      experience={ex}
+                      key={idx}
+                      className="ex-card"
+                    />
+                  );
+                })
+              )}
             </Card.Group>
           ) : null}
         </Segment>

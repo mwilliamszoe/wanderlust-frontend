@@ -83,6 +83,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state.currentUser);
     return (
       <BrowserRouter>
         <Navigation loggedin={this.state.loggedin}>

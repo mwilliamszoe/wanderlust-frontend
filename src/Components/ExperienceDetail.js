@@ -46,9 +46,10 @@ class ExperienceDetail extends Component {
     const ex = this.props.location.state.experience;
     return (
       <div>
-        <Button icon="heart" onClick={this.handleClick} />
         <Jumbotron>
           <h1>{ex.title}</h1>
+
+          <Button icon="heart" color="red" onClick={this.handleClick} />
           <hr />
         </Jumbotron>
         <Segment className="experience">

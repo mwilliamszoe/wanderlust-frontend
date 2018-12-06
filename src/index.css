@@ -21,7 +21,7 @@
 
 .profile-img-txt {
   position: relative;
-  bottom: 80px;
+  top: -350px;
   left: 5%;
   font-size: 2em;
   font-family: "Sriracha", cursive;
@@ -53,6 +53,10 @@ img.ui.image.profile-image {
 .ui.cards {
   margin-left: 9.5% !important;
   margin-top: 1% !important;
+}
+
+.my-saves {
+  margin: 0;
 }
 
 .ui.segment {
@@ -202,4 +206,13 @@ table.ui.very.basic.table.other-info {
 
 .ex-row-txt {
   line-height: 1.8;
+}
+
+img.ui.image.ex-img {
+  max-width: 100%;
+}
+
+.header.ex-card-header {
+  font-size: 1.1em;
+  color: black;
 }
