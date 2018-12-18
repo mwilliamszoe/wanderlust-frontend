@@ -216,3 +216,8 @@ img.ui.image.ex-img {
   font-size: 1.1em;
   color: black;
 }
+
+.twelve.wide.column.ex-row {
+  position: relative;
+  left: 30px;
+}

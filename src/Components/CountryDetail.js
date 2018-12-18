@@ -1,9 +1,6 @@
 import React from "react";
 import { Jumbotron } from "react-bootstrap";
-// import { Segment, Card } from "semantic-ui-react";
 import TabDetail from "../Containers/TabDetail";
-// import ExperienceCard from "../Containers/ExperienceCard";
-// import { NavLink } from "react-router-dom";
 
 const CountryDetail = props => {
   return (
@@ -28,9 +25,6 @@ const CountryDetail = props => {
           ea voluptate velit esse quam nihil molestiae consequatur, vel illum
           qui dolorem eum fugiat quo voluptas nulla pariatur?"
         </div>
-        {/* <Segment>
-          <Card.Group itemsPerRow={6}>{<ExperienceCard />}</Card.Group>
-        </Segment> */}
         <TabDetail />
         <TabDetail />
         <TabDetail />
