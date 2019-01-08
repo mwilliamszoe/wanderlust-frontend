@@ -14,7 +14,7 @@ class ExperienceDetail extends Component {
   handleClick = () => {
     let uid = parseInt(localStorage.getItem("user_id"));
     let ex = this.props.location.state.experience.id;
-    fetch(`http://localhost:4000/users/${uid}/liked_experiences/${ex}`)
+    fetch(`https://localhost:4000/users/${uid}/liked_experiences/${ex}`)
       .then(r => r.json())
       .then(response => {
         console.log(response);
@@ -27,7 +27,7 @@ class ExperienceDetail extends Component {
           })
             // .then(() => alert("unliked!"));
             .then(() => {
-              fetch("http://localhost:4000/likes")
+              fetch("https://localhost:4000/likes")
                 .then(r => r.json())
                 .then(response => {
                   this.props.resetLikedExperiences(response);
@@ -35,7 +35,7 @@ class ExperienceDetail extends Component {
                 });
             });
         } else {
-          fetch("http://localhost:4000/likes", {
+          fetch("https://localhost:4000/likes", {
             method: "POST",
             body: JSON.stringify({
               user_id: parseInt(localStorage.getItem("user_id")),
